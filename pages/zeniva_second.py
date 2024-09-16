@@ -151,7 +151,7 @@ zeniva_second_html_code = f"""
             <div>
                  <a href="#overview" style="margin-right: 20px; padding-right:50px; color: #F0F0F0; font-family: 'Roboto', sans-serif; font-size: 25px; font-style: normal; font-weight: 300; line-height: normal; text-decoration: none;">Overview</a>
  
-                                <a href="#zeniva" style="margin-right: 20px; padding-right:50px; color: #F0F0F0; font-family: 'Roboto', sans-serif; font-size: 25px; font-style: normal; font-weight: 300; line-height: normal; text-decoration: underline; text-decoration-color: none;">Zeniva</a>
+                <a href="#zeniva" style="margin-right: 20px; padding-right:50px; color: #F0F0F0; font-family: 'Roboto', sans-serif; font-size: 25px; font-style: normal; font-weight: 300; line-height: normal; text-decoration: underline; text-decoration-color: none;">Zeniva</a>
  
                 <a href="#odyessey" style="margin-right: 20px; padding-right:50px; color: #F0F0F0; font-family: 'Roboto', sans-serif; font-size: 25px; font-style: normal; font-weight: 300; line-height: normal; text-decoration: none;">Odyessey</a>
  
@@ -161,7 +161,7 @@ zeniva_second_html_code = f"""
         </div>
     </div>
      <div class="container">
-        <h2>Paid Campaigns</h2>
+        <h2 style='text-align:left; color:white;font-family: Roboto; font-size: 30px; font-style: normal;font-weight: 600; line-height: normal;' >Paid Campaigns</h2>
         <div class="buttons">
             <button>Today</button>
             <button>Week</button>
@@ -209,5 +209,5 @@ zeniva_second_html_code = f"""
  
 # Embed the custom HTML with st.components.v1.html
 components.html(zeniva_second_html_code, height=1000)
-time.sleep(1)
+time.sleep(10)
 st.switch_page("pages/ody_first.py")

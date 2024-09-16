@@ -313,5 +313,5 @@ zeniva_first_html_code = f"""
 
 
 components.html(zeniva_first_html_code, height=1000)
-time.sleep(1)
+time.sleep(10)
 st.switch_page("pages/zeniva_second.py")
