@@ -2,7 +2,7 @@ import streamlit as st
 from functions import zeniva_values_for_insights
 st.set_page_config(layout='wide')
 
-zeniva_linkedin_followers = zeniva_values_for_insights()
+zeniva_youtube, zeniva_x, zeniva_tiktok, zeniva_linkedin, zeniva_instagram, zeniva_facebook = zeniva_values_for_insights()
 
 
 # Custom CSS to style the cards
@@ -106,15 +106,15 @@ with col1:
             </div>
             <div class="row">
                 <p>Today's Follower Gain</p>
-                <p>34</p>
+                <p>{int(zeniva_youtube['today_followers'])}</p>
             </div>
             <div class="row">
                 <p>Yesterday's Follower Gain</p>
-                <p>35</p>
+                <p>{int(zeniva_youtube['yesterday_followers'])}</p>
             </div>
             <div class="row">
                 <p>Total Followers</p>
-                <p>34</p>
+                <p>{int(zeniva_youtube['total_followers'])}</p>
             </div>
         </div>
         """, unsafe_allow_html=True
@@ -122,22 +122,22 @@ with col1:
     
 with col2:
     st.markdown(
-        """
+        f"""
         <div class="main-card">
             <div style="display: flex; justify-content: space-between; align-items: center;">
                 <img src="https://s3-alpha-sig.figma.com/img/768f/342d/9e4a770de98237a79973f9654303f292?Expires=1727049600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=FhgU0xoY9xZro1SDHymYb4oxhnVl6ROxTLOuOS2hIAzPO6iT-tCE33wejsaW7nNV0yvcvv2ueGlyy8DVUSDXItj3vX90In6pN3AciNFP3T-CNvg-~4K7T0GBDT9KVAshn9P067X30flWmoFyHu58C5N~vC8P5jrjaSd95~SnkUlKx5wObIEYt5qWKyvJ49xFEkYF2IkNmvvdp8fzPCiFj4qhnc~bVvZ8vIShjzdstoQiVccGuLSR9HVbl6WSR6lk3Njepy5g45e4~mrPzp50uUO3oP0OIT9tEZgzkHEqwluKwhaTY8qPvPh1Op7rlQUA0VI2y42REZDOw5Rw0jhQNg__" alt="logo" style="width:100px;">
             </div>
             <div class="row">
                 <p>Today's Follower Gain</p>
-                <p>34</p>
+                <p>{int(zeniva_x['today_followers'])}</p>
             </div>
             <div class="row">
                 <p>Yesterday's Follower Gain</p>
-                <p>34</p>
+                <p>{int(zeniva_x['yesterday_followers'])}</p>
             </div>
             <div class="row">
                 <p>Total Followers</p>
-                <p>34</p>
+                <p>{int(zeniva_x['total_followers'])}</p>
             </div>
         </div>
         """, unsafe_allow_html=True
@@ -145,22 +145,22 @@ with col2:
     
 with col3:
     st.markdown(
-        """
+        f"""
         <div class="main-card">
             <div style="display: flex; justify-content: space-between; align-items: center;">
                 <img src="https://s3-alpha-sig.figma.com/img/b47c/7f6f/fc9958aff216c7090428e6fa1fa03889?Expires=1727049600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=D-tG02lIx3PeUh7xYTjYgy9iDSNUVqrz4jCEJzVWFRoq0-sAJ6VZFIyVFAO2yn6LkdB~BDxTrwh1khDKt5nwXzbvVBXZmj4zGlyXW-Wr-PbNNFe3y5fP6gEifmN~v38-QZwmaggPSS3VgDjhK31p5aAS6hDMhKqugV-54W3oTBylGtRlNNWfIgLhdKeZ7YFEdY7YiCxDR7mY6Q09BcRh6rlH8I--ypi1n5Wf~FvMIik01KqmoW--qvdPAWaQ02Yl~jnKv5gCZM1c5YdOY5M0GJ2n77Hl6P7bWOg92t7xzm6c9kG6nOovX4unPdPG2T1-05IrDmJ37HmxT0COXlR2uw__" alt="logo" style="width:100px;">
             </div>
             <div class="row">
                 <p>Today's Follower Gain</p>
-                <p>34</p>
+                <p>{int(zeniva_tiktok['today_followers'])}</p>
             </div>
             <div class="row">
                 <p>Yesterday's Follower Gain</p>
-                <p>34</p>
+                <p>{int(zeniva_tiktok['yesterday_followers'])}</p>
             </div>
             <div class="row">
                 <p>Total Followers</p>
-                <p>34</p>
+                <p>{int(zeniva_tiktok['total_followers'])}</p>
             </div>
         </div>
         """, unsafe_allow_html=True
@@ -177,15 +177,15 @@ with col4:
             </div>
             <div class="row">
                 <p>Today's Follower Gain</p>
-                <p>{int(zeniva_linkedin_followers['today_followers'])}</p>
+                <p>{int(zeniva_linkedin['today_followers'])}</p>
             </div>
             <div class="row">
                 <p>Yesterday's Follower Gain</p>
-                <p>{int(zeniva_linkedin_followers['yesterday_followers'])}</p>
+                <p>{int(zeniva_linkedin['yesterday_followers'])}</p>
             </div>
             <div class="row">
                 <p>Total Followers</p>
-                <p>{int(zeniva_linkedin_followers['total_followers'])}</p>
+                <p>{int(zeniva_linkedin['total_followers'])}</p>
             </div>
         </div>
         """, unsafe_allow_html=True
@@ -193,22 +193,22 @@ with col4:
     
 with col5:
     st.markdown(
-        """
+        f"""
         <div class="main-card">
             <div style="display: flex; justify-content: space-between; align-items: center;">
                 <img src="https://s3-alpha-sig.figma.com/img/232a/6d02/35389cdc480a936cb4b29721bb3a9670?Expires=1727049600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=oK0XcCmpwGIRCY4NkO-cdFF-XE8aVxgIUZvbdoSDqLXFkTVmJg2Gjg1DNSffP~qTkcdME8z3IUr~QsBzWkSjXzI6SUI-fwZqM2XMhPFRw3-Z-UeCuE~6fiLFaXTiSOicVKOY1qi490fqiQtlsYM542vF3EEheuZ-2yEcmqYsZh5y6qqUS8s5n0H6bCPLNrOuSPwyCncfU6cSTmah-mA20BNtEUJvAWREoMAeV--9hxxSmaePeEPAgKOd~HcUs-pDVDHYE2DztmsYpKMMIdP4--2gGO7tIT6QN4x6OVtdK09FInrkNQ-u66O18reiJtuOTpmGz-wvhfgc9Pj0cIECgw__" alt="logo" style="width:100px;">
             </div>
             <div class="row">
                 <p>Today's Follower Gain</p>
-                <p>34</p>
+                <p>{int(zeniva_instagram['today_followers'])}</p>
             </div>
             <div class="row">
                 <p>Yesterday's Follower Gain</p>
-                <p>34</p>
+                <p>{int(zeniva_instagram['yesterday_followers'])}</p>
             </div>
             <div class="row">
                 <p>Total Followers</p>
-                <p>34</p>
+                <p>{int(zeniva_instagram['total_followers'])}</p>
             </div>
         </div>
         """, unsafe_allow_html=True
@@ -216,22 +216,22 @@ with col5:
     
 with col6:
     st.markdown(
-        """
+        f"""
         <div class="main-card">
             <div style="display: flex; justify-content: space-between; align-items: center;">
                 <img src="https://s3-alpha-sig.figma.com/img/8dc1/10ac/b5207b2f13bddf9c389553f59ecc26fc?Expires=1727049600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=A818FDLlVUQDYe9bKPfPdfqLkT7bl8B2Gh52lMli~rYMyErdDX3qSLI0Iob-6sj5PVkXbwti6f7K2aMm4x8RnF-u-RCyHLP2ho6YGXVHuscnI~jZZJs6aA07OZBtEH41suzjWfqUwfkm4WkCQYErmzjgfRp45LYq-JKPDTsMYFl87~YTwBdKyoTPzpQ0emjFEyqe-lws91l6sjgc3gbqQWRGW4TyMAowGzv9rkNfqiAHldzy1Eye0BenJKve16QNIDb3k~AUqXNqFsebh0B9nE05AdqHZ5x~OVgklnSC8AvF6CRAtnO9ATGRcW8K96BPyOxAVWtD7ROU4p7M9erBvw__" alt="logo" style="width:100px;">
             </div>
             <div class="row">
                 <p>Today's Follower Gain</p>
-                <p>34</p>
+                <p>{int(zeniva_facebook['today_followers'])}</p>
             </div>
             <div class="row">
                 <p>Yesterday's Follower Gain</p>
-                <p>34</p>
+                <p>{int(zeniva_facebook['yesterday_followers'])}</p>
             </div>
             <div class="row">
                 <p>Total Followers</p>
-                <p>34</p>
+                <p>{int(zeniva_facebook['total_followers'])}</p>
             </div>
         </div>
         """, unsafe_allow_html=True
