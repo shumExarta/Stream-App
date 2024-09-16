@@ -80,16 +80,53 @@ def zeniva_values_for_insights():
         zeniva_instagram[["total_followers", "today_followers", "yesterday_followers"]],
         zeniva_facebook[["total_followers", "today_followers", "yesterday_followers"]],
     )
+    
+
+def odyessey_values_for_insights():
+    data = live_data.fillna(0)
+    odyessey_data = data[data["product"] == "odyessey"]
+    odyessey_youtube = odyessey_data[odyessey_data["platform"] == "youtube"]
+    odyessey_x = odyessey_data[odyessey_data["platform"] == "x"]
+    odyessey_tiktok = odyessey_data[odyessey_data["platform"] == "tiktok"]
+    odyessey_instagram = odyessey_data[odyessey_data["platform"] == "instagram"]
+    odyessey_facebook = odyessey_data[odyessey_data["platform"] == "facebook"]
+    return (
+        odyessey_youtube[["total_followers", "today_followers", "yesterday_followers"]],
+        odyessey_x[["total_followers", "today_followers", "yesterday_followers"]],
+        odyessey_tiktok[["total_followers", "today_followers", "yesterday_followers"]],
+        odyessey_instagram[["total_followers", "today_followers", "yesterday_followers"]],
+        odyessey_facebook[["total_followers", "today_followers", "yesterday_followers"]],
+    )
+    
+
+def exarta_values_for_insights():
+    data = live_data.fillna(0)
+    exarta_data = data[data["product"] == "odyessey"]
+    exarta_youtube = exarta_data[exarta_data["platform"] == "youtube"]
+    exarta_x = exarta_data[exarta_data["platform"] == "x"]
+    exarta_facebook = exarta_data[exarta_data["platform"] == "facebook"]
+    exarta_linkedin = exarta_data[exarta_data["platform"] == "linkedin"]
+    exarta_instagram = exarta_data[exarta_data["platform"] == "instagram"]
+    return (
+        exarta_youtube[["total_followers", "today_followers", "yesterday_followers"]],
+        exarta_x[["total_followers", "today_followers", "yesterday_followers"]],
+        exarta_facebook[["total_followers", "today_followers", "yesterday_followers"]],
+        exarta_linkedin[["total_followers", "today_followers", "yesterday_followers"]],
+        exarta_instagram[["total_followers", "today_followers", "yesterday_followers"]],
+    )
+
 
 
 def plot_histograms_zeniva(product_name, platform_name):
     df = pd.read_csv('graph_data_final.csv')
+    df = df.fillna(0)
     df = df[df['product'] == product_name]
     
     platform_metrics = {
         'youtube': ['clicks', 'views', 'daily_spend'],
         'meta': ['clicks', 'reach', 'daily_spend'],
-        'shopify': ['clicks', 'daily_spend']
+        'shopify': ['clicks', 'daily_spend'],
+        'ppc': ['clicks', 'daily_spend', 'impressions'],
     }
     
     if platform_name in platform_metrics:
@@ -99,14 +136,14 @@ def plot_histograms_zeniva(product_name, platform_name):
         return
     
     df_platform = df[df['platform'] == platform_name]
-    print(df_platform)
     df_grouped = df_platform[['date'] + selected_metrics].melt(id_vars='date', var_name='Metric', value_name='Value')
     
     color_discrete_map = {
         'clicks': '#BC679C',
         'views': '#F68C5B',
         'daily_spend': '#A6B174',
-        'reach': '#8567BC'
+        'reach': '#8567BC',
+        'impressions': '#F68C5B'
     }
     fig = px.histogram(
         df_grouped, 

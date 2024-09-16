@@ -1,12 +1,11 @@
 import streamlit as st
+from functions import odyessey_values_for_insights
 import streamlit.components.v1 as components
-from functions import zeniva_values_for_insights
 st.set_page_config(layout='wide')
- 
 
-zeniva_youtube, zeniva_x, zeniva_tiktok, zeniva_linkedin, zeniva_instagram, zeniva_facebook = zeniva_values_for_insights()
- 
-zeniva_first_html_code = f"""
+odyessey_youtube, odyessey_x, odyessey_tiktok, odyessey_instagram, odyessey_facebook = odyessey_values_for_insights()
+
+html_code = f"""
     <style>
     .header {{
         background-color: #20232A;
@@ -176,19 +175,19 @@ zeniva_first_html_code = f"""
        <div class="metric-container">
     <div class="metric-row">
         <p class="metric-left">Today's Follower Gain</p>
-        <p class="metric-right">{int(zeniva_youtube['today_followers'].iloc[0])}</p>
+        <p class="metric-right">{int(odyessey_youtube['today_followers'].iloc[0])}</p>
     </div>
     <div class="metric-line"></div>
  
     <div class="metric-row">
         <p class="metric-left">Yesterday's Follower Gain</p>
-        <p class="metric-right">{int(zeniva_youtube['yesterday_followers'].iloc[0])}</p>
+        <p class="metric-right">{int(odyessey_youtube['yesterday_followers'].iloc[0])}</p>
     </div>
     <div class="metric-line"></div>
  
     <div class="metric-row">
         <p class="metric-left">Total Followers</p>
-        <p class="metric-right">{int(zeniva_youtube['total_followers'].iloc[0])}</p>
+        <p class="metric-right">{int(odyessey_youtube['total_followers'].iloc[0])}</p>
     </div>
 </div>
     </div>
@@ -199,19 +198,19 @@ zeniva_first_html_code = f"""
 <div class="metric-container">
     <div class="metric-row">
         <p class="metric-left">Today's Follower Gain</p>
-        <p class="metric-right">{int(zeniva_x['today_followers'].iloc[0])}</p>
+        <p class="metric-right">{int(odyessey_x['today_followers'].iloc[0])}</p>
     </div>
     <div class="metric-line"></div>
  
     <div class="metric-row">
         <p class="metric-left">Yesterday's Follower Gain</p>
-        <p class="metric-right">{int(zeniva_x['yesterday_followers'].iloc[0])}</p>
+        <p class="metric-right">{int(odyessey_x['yesterday_followers'].iloc[0])}</p>
     </div>
     <div class="metric-line"></div>
  
     <div class="metric-row">
         <p class="metric-left">Total Followers</p>
-        <p class="metric-right">{int(zeniva_x['total_followers'].iloc[0])}</p>
+        <p class="metric-right">{int(odyessey_x['total_followers'].iloc[0])}</p>
     </div>
 </div>
     </div>
@@ -222,42 +221,19 @@ zeniva_first_html_code = f"""
         <div class="metric-container">
     <div class="metric-row">
         <p class="metric-left">Today's Follower Gain</p>
-        <p class="metric-right">{int(zeniva_tiktok['today_followers'].iloc[0])}</p>
+        <p class="metric-right">{int(odyessey_tiktok['today_followers'].iloc[0])}</p>
     </div>
     <div class="metric-line"></div>
  
     <div class="metric-row">
         <p class="metric-left">Yesterday's Follower Gain</p>
-        <p class="metric-right">{int(zeniva_tiktok['yesterday_followers'].iloc[0])}</p>
+        <p class="metric-right">{int(odyessey_tiktok['yesterday_followers'].iloc[0])}</p>
     </div>
     <div class="metric-line"></div>
  
     <div class="metric-row">
         <p class="metric-left">Total Followers</p>
-        <p class="metric-right">{int(zeniva_tiktok['total_followers'].iloc[0])}</p>
-    </div>
-</div>
-    </div>
-    <div class="main-card">
-        <div class="image-container">
-            <img src="https://s3-alpha-sig.figma.com/img/0a8d/0e25/1524028dffda5c43327cb4b962333b48?Expires=1727654400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Ll9~1wi~ajZRStSgseZUgbuwaPbOAAS5YFePWwHaLzxCuA~enY1KFCIkVqo87YqccyTM5X-Ya0jQYzwFQjqoefTr1yaSxa-eMtcpXXsqmW9yXObOszC-mcpuuZPN5NTlZyztwySHiB1OkW64cFuC~WGImderdzMPUWlGXBAaGjL986zquDeLc-ZjbKJZHcEnoG6QMIPvKenSnYCHDZ1JChVnW2Aus4I~-hEuEfvbWIwjKblvxwaCyeDXbecVDPpLoE4gCnWghdcOLBPBhA42xsDeocj-2TBvTDTjgDeiEe9GFBOSu4KL66e-f36ww4mGW-PIWaF-xX62jT4uHu51nA__" alt="logo">
-        </div>
-        <div class="metric-container">
-    <div class="metric-row">
-        <p class="metric-left">Today's Follower Gain</p>
-        <p class="metric-right">{int(zeniva_linkedin['today_followers'].iloc[0])}</p>
-    </div>
-    <div class="metric-line"></div>
- 
-    <div class="metric-row">
-        <p class="metric-left">Yesterday's Follower Gain</p>
-        <p class="metric-right">{int(zeniva_linkedin['yesterday_followers'].iloc[0])}</p>
-    </div>
-    <div class="metric-line"></div>
- 
-    <div class="metric-row">
-        <p class="metric-left">Total Followers</p>
-        <p class="metric-right">{int(zeniva_linkedin['total_followers'].iloc[0])}</p>
+        <p class="metric-right">{int(odyessey_tiktok['total_followers'].iloc[0])}</p>
     </div>
 </div>
     </div>
@@ -268,19 +244,19 @@ zeniva_first_html_code = f"""
         <div class="metric-container">
     <div class="metric-row">
         <p class="metric-left">Today's Follower Gain</p>
-        <p class="metric-right">{int(zeniva_instagram['today_followers'].iloc[0])}</p>
+        <p class="metric-right">{int(odyessey_instagram['today_followers'].iloc[0])}</p>
     </div>
     <div class="metric-line"></div>
  
     <div class="metric-row">
         <p class="metric-left">Yesterday's Follower Gain</p>
-        <p class="metric-right">{int(zeniva_instagram['yesterday_followers'].iloc[0])}</p>
+        <p class="metric-right">{int(odyessey_instagram['yesterday_followers'].iloc[0])}</p>
     </div>
     <div class="metric-line"></div>
  
     <div class="metric-row">
         <p class="metric-left">Total Followers</p>
-        <p class="metric-right">{int(zeniva_instagram['total_followers'].iloc[0])}</p>
+        <p class="metric-right">{int(odyessey_instagram['total_followers'].iloc[0])}</p>
     </div>
 </div>
     </div>
@@ -291,19 +267,19 @@ zeniva_first_html_code = f"""
         <div class="metric-container">
     <div class="metric-row">
         <p class="metric-left">Today's Follower Gain</p>
-        <p class="metric-right">{int(zeniva_facebook['today_followers'].iloc[0])}</p>
+        <p class="metric-right">{int(odyessey_facebook['today_followers'].iloc[0])}</p>
     </div>
     <div class="metric-line"></div>
  
     <div class="metric-row">
         <p class="metric-left">Yesterday's Follower Gain</p>
-        <p class="metric-right">{int(zeniva_facebook['yesterday_followers'].iloc[0])}</p>
+        <p class="metric-right">{int(odyessey_facebook['yesterday_followers'].iloc[0])}</p>
     </div>
     <div class="metric-line"></div>
  
     <div class="metric-row">
         <p class="metric-left">Total Followers</p>
-        <p class="metric-right">{int(zeniva_facebook['total_followers'].iloc[0])}</p>
+        <p class="metric-right">{int(odyessey_facebook['total_followers'].iloc[0])}</p>
     </div>
 </div>
     </div>
@@ -313,4 +289,4 @@ zeniva_first_html_code = f"""
 """
  
  
-components.html(zeniva_first_html_code, height=1000)
+components.html(html_code, height=1000)
