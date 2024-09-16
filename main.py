@@ -1,9 +1,16 @@
 import streamlit as st
 import streamlit.components.v1 as components
 import time
+from functions import zeniva_overview, odyessey_overview
+import pandas as pd
 st.set_page_config(layout='wide', initial_sidebar_state='collapsed')
  
- 
+df = pd.read_csv("comparisons.csv") 
+df = df.fillna(0)
+
+today_paid_installs_for_zin, todays_free_installs_zin, total_installs_zin, today__paid_uninstalls_zin, today_free_uninstalls_zin, total_uninstalls_zin= zeniva_overview(df)
+today_forge_installs_for_ody, todays_free_installs_for_ody, total_installs_for_ody, today__forge_uninstalls_for_ody, today_free_uninstalls_for_ody, total_uninstalls_for_ody = odyessey_overview(df) 
+
 html_code = f"""
     <style>
     .header {{
@@ -254,29 +261,29 @@ margin-bottom: 22px;
  
          <div class="firstrowcards">
          <div class="card1">
-        <p class="card-number">04</p>
-        <p class="card-text">Today's Paid installs</p>
+        <p class="card-number">{int(today_paid_installs_for_zin)}</p>
+        <p class="card-text">Today's Paid Installs</p>
     </div>
     <div class="card2">
-        <p class="card-number">200</p>
-        <p class="card-text">Today's Free installs</p>
+        <p class="card-number">{todays_free_installs_zin}</p>
+        <p class="card-text">Today's Free Installs</p>
     </div>
     <div class="card3">
-        <p class="card-number">02</p>
-        <p class="card-text">Total installs</p>
+        <p class="card-number">{total_installs_zin}</p>
+        <p class="card-text">Total Installs</p>
     </div>
     </div>
   <div class="secondrowcards">
     <div class="card">
-        <p class="card-number">04</p>
+        <p class="card-number">{int(today__paid_uninstalls_zin)}</p>
         <p class="card-text">Today's Paid Uninstalls</p>
     </div>
     <div class="card">
-        <p class="card-number">200</p>
+        <p class="card-number">{today_free_uninstalls_zin}</p>
         <p class="card-text">Today's Free Uninstalls</p>
     </div>
     <div class="card">
-        <p class="card-number">02</p>
+        <p class="card-number">{total_uninstalls_zin}</p>
         <p class="card-text">Total Uninstalls</p>
     </div>
 </div>
@@ -289,29 +296,29 @@ margin-bottom: 22px;
  
  <div class="firstrowcards">
         <div class="card1">
-        <p class="card-number">04</p>
-        <p class="card-text">Today's Paid installs</p>
+        <p class="card-number">{int(today_forge_installs_for_ody)}</p>
+        <p class="card-text">Today's Forge installs</p>
     </div>
     <div class="card2">
-        <p class="card-number">200</p>
+        <p class="card-number">{todays_free_installs_for_ody}</p>
         <p class="card-text">Today's Free installs</p>
     </div>
     <div class="card3">
-        <p class="card-number">02</p>
+        <p class="card-number">{total_installs_for_ody}</p>
         <p class="card-text">Total installs</p>
     </div>
     </div>
      <div class="secondrowcards">
     <div class="card">
-        <p class="card-number">04</p>
-        <p class="card-text">Today's Paid Uninstalls</p>
+        <p class="card-number">{int(today__forge_uninstalls_for_ody)}</p>
+        <p class="card-text">Today's Forge Uninstalls</p>
     </div>
     <div class="card">
-        <p class="card-number">200</p>
+        <p class="card-number">{today_free_uninstalls_for_ody}</p>
         <p class="card-text">Today's Free Uninstalls</p>
     </div>
     <div class="card">
-        <p class="card-number">02</p>
+        <p class="card-number">{total_uninstalls_for_ody}</p>
         <p class="card-text">Total Uninstalls</p>
     </div>
 </div>

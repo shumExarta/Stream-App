@@ -182,3 +182,75 @@ def plot_histograms_zeniva(product_name, platform_name):
 
     # Render the HTML in Streamlit
     return fig_html
+
+
+
+
+
+
+
+# Ziniva comparison overview part 
+
+def zeniva_overview(df):
+    filter_product_zin = df[df['Product'] == 'Zeniva']
+    today_paid_installs = filter_product_zin['today_paid_installs'].sum()
+    
+    
+    filter_product_zin = df[df['Product'] == 'Zeniva']
+    todays_free_installs = filter_product_zin['todays_free_installs'].sum()
+    
+    filter_product_zin = df[df['Product'] == 'Zeniva']
+    total_installs = filter_product_zin['total_installs'].sum()
+    
+    filter_product_zin = df[df['Product'] == 'Zeniva']
+    today__paid_uninstalls = filter_product_zin['today_paid_uninstalls'].sum()
+    
+    filter_product_zin = df[df['Product'] == 'Zeniva']
+    today_free_uninstalls = filter_product_zin['today_free_uninstalls'].sum()
+
+    filter_product_zin = df[df['Product'] == 'Zeniva']
+    total_uninstalls = filter_product_zin['total_uninstalls'].sum()
+
+    return today_paid_installs, todays_free_installs, total_installs, today__paid_uninstalls, today_free_uninstalls, total_uninstalls
+
+    
+
+# Odyessey comparison overview part 
+def odyessey_overview(df):
+    filter_product_zin = df[df['Product'] == 'Odassay']
+    today_forge_installs = filter_product_zin['todays_forge_installs'].sum()
+    
+    
+    filter_product_zin = df[df['Product'] == 'Odassay']
+    todays_free_installs = filter_product_zin['todays_free_installs'].sum()
+    
+    filter_product_zin = df[df['Product'] == 'Odassay']
+    total_installs = filter_product_zin['total_installs'].sum()
+    
+    filter_product_zin = df[df['Product'] == 'Odassay']
+    today__forge_uninstalls = filter_product_zin['todays_forge_uninstalls'].sum()
+    
+    filter_product_zin = df[df['Product'] == 'Odassay']
+    today_free_uninstalls = filter_product_zin['today_free_uninstalls'].sum()
+
+    filter_product_zin = df[df['Product'] == 'Odassay']
+    total_uninstalls = filter_product_zin['total_uninstalls'].sum()
+
+    return today_forge_installs, todays_free_installs, total_installs, today__forge_uninstalls, today_free_uninstalls, total_uninstalls
+
+def odyessey_values_for_insights():
+    data = live_data.fillna(0)
+    odyessey_data = data[data["product"] == "odyessey"]
+    odyessey_youtube = odyessey_data[odyessey_data["platform"] == "youtube"]
+    odyessey_x = odyessey_data[odyessey_data["platform"] == "x"]
+    odyessey_tiktok = odyessey_data[odyessey_data["platform"] == "tiktok"]
+    odyessey_instagram = odyessey_data[odyessey_data["platform"] == "instagram"]
+    odyessey_facebook = odyessey_data[odyessey_data["platform"] == "facebook"]
+    return (
+        odyessey_youtube[["total_followers", "today_followers", "yesterday_followers"]],
+        odyessey_x[["total_followers", "today_followers", "yesterday_followers"]],
+        odyessey_tiktok[["total_followers", "today_followers", "yesterday_followers"]],
+        odyessey_instagram[["total_followers", "today_followers", "yesterday_followers"]],
+        odyessey_facebook[["total_followers", "today_followers", "yesterday_followers"]],
+    )
+    
