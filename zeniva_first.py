@@ -1,5 +1,9 @@
 import streamlit as st
+from functions import zeniva_values_for_insights
 st.set_page_config(layout='wide')
+
+zeniva_linkedin_followers = zeniva_values_for_insights()
+
 
 # Custom CSS to style the cards
 st.markdown("""
@@ -173,15 +177,15 @@ with col4:
             </div>
             <div class="row">
                 <p>Today's Follower Gain</p>
-                <p>34</p>
+                <p>{int(zeniva_linkedin_followers['today_followers'])}</p>
             </div>
             <div class="row">
                 <p>Yesterday's Follower Gain</p>
-                <p>34</p>
+                <p>{int(zeniva_linkedin_followers['yesterday_followers'])}</p>
             </div>
             <div class="row">
                 <p>Total Followers</p>
-                <p>34</p>
+                <p>{int(zeniva_linkedin_followers['total_followers'])}</p>
             </div>
         </div>
         """, unsafe_allow_html=True

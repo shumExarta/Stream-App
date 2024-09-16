@@ -1,5 +1,7 @@
 import pandas as pd
 
+live_data = pd.read_csv('graph_data_final.csv')
+
 def histo_youtube(dataframe):
     df_youtube = dataframe[dataframe['platform'] == 'youtube']
     youtube_melted = df_youtube.melt(id_vars=['date'], value_vars=['views', 'clicks', 'daily_spend'], var_name='metric', value_name='value')
@@ -25,3 +27,10 @@ def filtering_data(dataframe):
     ppc_melted = filter_ppc_exarta.melt(id_vars=['date'], value_vars=['views', 'clicks', 'daily_spend'], var_name='metric', value_name='value')
     
     return youtube_melted, meta_melted, ppc_melted
+
+
+def zeniva_values_for_insights():
+    data = live_data.fillna(0)
+    exarta_data = data[data['product'] == 'zeniva']
+    exarta_linkedin = exarta_data[exarta_data['platform'] == 'linkedin']
+    return exarta_linkedin[['total_followers', 'today_followers', 'yesterday_followers']].astype(int)
