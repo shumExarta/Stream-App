@@ -1,12 +1,10 @@
 import streamlit as st
 import streamlit.components.v1 as components
-from functions import zeniva_values_for_insights
-st.set_page_config(layout='wide')
- 
+from functions import exarta_values_for_insights
+st.set_page_config(layout='wide', initial_sidebar_state='collapsed')
 
-zeniva_youtube, zeniva_x, zeniva_tiktok, zeniva_linkedin, zeniva_instagram, zeniva_facebook = zeniva_values_for_insights()
- 
-zeniva_first_html_code = f"""
+exarta_youtube, exarta_x, exarta_facebook, exarta_linkedin, exarta_instagram = exarta_values_for_insights()
+exarta_first_html_code = f"""
     <style>
     .header {{
         background-color: #20232A;
@@ -17,12 +15,12 @@ zeniva_first_html_code = f"""
     .main-container {{
     display: grid;
     grid-template-columns: repeat(3,1fr);
-     gap: 20px;
- 
+    gap: 20px;
+
 }}
- 
+
 .main-card {{
-     background-color: #272B34;
+    background-color: #272B34;
     height: 280px;
     padding: 20px;
     border-radius: 10px;
@@ -30,27 +28,27 @@ zeniva_first_html_code = f"""
     color: white;
     position: relative;
 }}
- 
+
 .image-container {{
     position: absolute;
     top: 20px; /* Adjust as needed */
     left: 20px; /* Adjust as needed */
     background-color: #272B34; /* Match the background color if necessary */
 }}
- 
+
 .image-container img {{
     width: 100px; /* Adjust as needed */
     height: auto;
 }}
- 
- 
+
+
 .image-containerx {{
     position: absolute;
     top: 20px; /* Adjust as needed */
     left: 20px; /* Adjust as needed */
     background-color: #272B34; /* Match the background color if necessary */
 }}
- 
+
 .image-containerx img {{
     width: 40px; /* Adjust as needed */
     height: auto;
@@ -104,21 +102,20 @@ zeniva_first_html_code = f"""
         font-weight: 600;
         line-height: normal;
     }}
-   
-     .graph-container {{
+    .graph-container {{
         width: 100%;
         height: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
     }}
- 
     .metric-container {{
             margin-top: 100px;
         }}
         .metric-row {{
             display: flex;
             justify-content: space-between;
+
             padding: 10px 0;
         }}
         .metric-row p {{
@@ -138,7 +135,7 @@ zeniva_first_html_code = f"""
             text-align: left;
         }}
         .metric-right {{
-             color: white;
+            color: white;
             font-family: 'Roboto', sans-serif;
             font-size: 20px;
             font-style: normal;
@@ -147,23 +144,23 @@ zeniva_first_html_code = f"""
             text-align: right;
         }}
     </style>
- 
+
         <head>
             <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
         </head>
- 
+
     <div class="header">
         <div style="display: flex; justify-content: space-between; align-items: center;">
             <img src="https://s3-alpha-sig.figma.com/img/eade/289a/e18354455a369ad15c69d06cf3a4b8d9?Expires=1727049600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=WIBKSu6Km2Ruzy2rd1AES~qlUV14~IIUDn3Xf0hDzJmuIwJL~D5IJpEbxtON7d23YoKvR9p779yudRx17-rFfwb-D5E-sNl3bTsflBxzKGkZ51VDYRqP~vhDAUKjKEV4~iAY-fqOsNy7DyhzOhMkDxfZF6SxZGmh7DGrOqT8KlJ6i2mzH6IGSkn0G7LDUDpmeS0CBxpcwXYaeJw8ZXYsFiPm4ZzvC5z17axAsRIxs9DExbgSKMDI2Wo32WatugfErS5s4kJJktNsjDhrZ262aEWWGFnetUNuYzXnACstbuokoWV~WhYdeBHhlVmiIViODyXh6W4n7TnHG0qon-fhbA__" alt="logo" style="width:100px;">
             <div>
-                 <a href="#overview" style="margin-right: 20px; padding-right:50px; color: #F0F0F0; font-family: 'Roboto', sans-serif; font-size: 25px; font-style: normal; font-weight: 300; line-height: normal; text-decoration: none;">Overview</a>
- 
+                <a href="#overview" style="margin-right: 20px; padding-right:50px; color: #F0F0F0; font-family: 'Roboto', sans-serif; font-size: 25px; font-style: normal; font-weight: 300; line-height: normal; text-decoration: none;">Overview</a>
+
                 <a href="#zeniva" style="margin-right: 20px; padding-right:50px; color: #F0F0F0; font-family: 'Roboto', sans-serif; font-size: 25px; font-style: normal; font-weight: 300; line-height: normal; text-decoration: none;">Zeniva</a>
- 
+
                 <a href="#odyessey" style="margin-right: 20px; padding-right:50px; color: #F0F0F0; font-family: 'Roboto', sans-serif; font-size: 25px; font-style: normal; font-weight: 300; line-height: normal; text-decoration: none;">Odyessey</a>
- 
-                <a href="#exarta" style="padding-right:50px; color: #F0F0F0; font-family: 'Roboto', sans-serif; font-size: 25px; font-style: normal; font-weight: 300; line-height: normal; text-decoration: none;">Exarta</a>
- 
+
+                <a href="#exarta" style="margin-right: 20px; padding-right:50px; color: #F0F0F0; font-family: 'Roboto', sans-serif; font-size: 25px; font-style: normal; font-weight: 300; line-height: normal; text-decoration: underline; text-decoration-color: none;">Exarta</a>
+
             </div>
         </div>
     </div>
@@ -173,22 +170,22 @@ zeniva_first_html_code = f"""
         <div class="image-container">
             <img src="https://s3-alpha-sig.figma.com/img/1498/18fb/0109e9eb56d423e70f5960980428bd58?Expires=1727049600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=SyHFjAnXlmYdYKWgvjqlg92uj8GHJDrg-dGbSfrmWFe-U3ZqoXKYBE37yAoeOFRH6OKsxSCi-Lz56srq-JJVMAxasuua05uVj3iAjLQdLjj42QbsS3BP~STGfGuChceh1gKUkwHz8-kJFcZ3fdBctjTv~x2KtCRj0p~e8Y6nyRsNTV4GyjCxjglPCZPTuoY2I7v95PvveiM5DoLLblfLL872rCNmvz~mf~zOEM~neP2vorcddB5MGLkKCvdJuAic3qR5zWkEzNdQd3dQ7A1ap-XxMgtbglne1oP2xaP~Tf5I0Q14CfgntY54P5lOHCKh0tDxBaDrynK18TzAJlXmug__" alt="logo">
         </div>
-       <div class="metric-container">
+    <div class="metric-container">
     <div class="metric-row">
         <p class="metric-left">Today's Follower Gain</p>
-        <p class="metric-right">{int(zeniva_youtube['today_followers'].iloc[0])}</p>
+        <p class="metric-right">{int(exarta_youtube['today_followers'].iloc[0])}</p>
     </div>
     <div class="metric-line"></div>
- 
+
     <div class="metric-row">
         <p class="metric-left">Yesterday's Follower Gain</p>
-        <p class="metric-right">{int(zeniva_youtube['yesterday_followers'].iloc[0])}</p>
+        <p class="metric-right">{int(exarta_youtube['yesterday_followers'].iloc[0])}</p>
     </div>
     <div class="metric-line"></div>
- 
+
     <div class="metric-row">
         <p class="metric-left">Total Followers</p>
-        <p class="metric-right">{int(zeniva_youtube['total_followers'].iloc[0])}</p>
+        <p class="metric-right">{int(exarta_youtube['total_followers'].iloc[0])}</p>
     </div>
 </div>
     </div>
@@ -199,42 +196,42 @@ zeniva_first_html_code = f"""
 <div class="metric-container">
     <div class="metric-row">
         <p class="metric-left">Today's Follower Gain</p>
-        <p class="metric-right">{int(zeniva_x['today_followers'].iloc[0])}</p>
+        <p class="metric-right">{int(exarta_x['today_followers'].iloc[0])}</p>
     </div>
     <div class="metric-line"></div>
- 
+
     <div class="metric-row">
         <p class="metric-left">Yesterday's Follower Gain</p>
-        <p class="metric-right">{int(zeniva_x['yesterday_followers'].iloc[0])}</p>
+        <p class="metric-right">{int(exarta_x['yesterday_followers'].iloc[0])}</p>
     </div>
     <div class="metric-line"></div>
- 
+
     <div class="metric-row">
         <p class="metric-left">Total Followers</p>
-        <p class="metric-right">{int(zeniva_x['total_followers'].iloc[0])}</p>
+        <p class="metric-right">{int(exarta_x['total_followers'].iloc[0])}</p>
     </div>
 </div>
     </div>
-     <div class="main-card">
+    <div class="main-card">
         <div class="image-container">
             <img src="https://s3-alpha-sig.figma.com/img/b47c/7f6f/fc9958aff216c7090428e6fa1fa03889?Expires=1727654400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=e3YAIVFgpSCWkpysbgSsHUCQsQRl22MlQfJcDgsot9KMKGp0Hx1-yBhSkkBMrO~m0ZrMAXHwiReE6lTJEai6-NB9o2aeKMZ1pSwsQUDb9m8oit99HXtNSwQiPA1hUGK4z-uyE-3hMf7B7JKiGllEIUdXPAwxWy5srGsMLQdtsbS4R48K2O-VCyEzAR5jrwlHw4zBnWY6TSmXSJotXn71OvyEBu6XkUguLolUmPojsWqvydSLKp28~vOBCFcULADpCgiJb1HjQ1H5VuURAqQvuTK5-YLdRVGwWkBcBMp0Ktsw68ZAiAj0bSaQPoyf~FyTewhZnY8BZE4V~eKnEAOCKg__" alt="logo">
         </div>
         <div class="metric-container">
     <div class="metric-row">
         <p class="metric-left">Today's Follower Gain</p>
-        <p class="metric-right">{int(zeniva_tiktok['today_followers'].iloc[0])}</p>
+        <p class="metric-right">{int(exarta_facebook['today_followers'].iloc[0])}</p>
     </div>
     <div class="metric-line"></div>
- 
+
     <div class="metric-row">
         <p class="metric-left">Yesterday's Follower Gain</p>
-        <p class="metric-right">{int(zeniva_tiktok['yesterday_followers'].iloc[0])}</p>
+        <p class="metric-right">{int(exarta_facebook['yesterday_followers'].iloc[0])}</p>
     </div>
     <div class="metric-line"></div>
- 
+
     <div class="metric-row">
         <p class="metric-left">Total Followers</p>
-        <p class="metric-right">{int(zeniva_tiktok['total_followers'].iloc[0])}</p>
+        <p class="metric-right">{int(exarta_facebook['total_followers'].iloc[0])}</p>
     </div>
 </div>
     </div>
@@ -245,19 +242,19 @@ zeniva_first_html_code = f"""
         <div class="metric-container">
     <div class="metric-row">
         <p class="metric-left">Today's Follower Gain</p>
-        <p class="metric-right">{int(zeniva_linkedin['today_followers'].iloc[0])}</p>
+        <p class="metric-right">{int(exarta_linkedin['today_followers'].iloc[0])}</p>
     </div>
     <div class="metric-line"></div>
- 
+
     <div class="metric-row">
         <p class="metric-left">Yesterday's Follower Gain</p>
-        <p class="metric-right">{int(zeniva_linkedin['yesterday_followers'].iloc[0])}</p>
+        <p class="metric-right">{int(exarta_linkedin['yesterday_followers'].iloc[0])}</p>
     </div>
     <div class="metric-line"></div>
- 
+
     <div class="metric-row">
         <p class="metric-left">Total Followers</p>
-        <p class="metric-right">{int(zeniva_linkedin['total_followers'].iloc[0])}</p>
+        <p class="metric-right">{int(exarta_linkedin['total_followers'].iloc[0])}</p>
     </div>
 </div>
     </div>
@@ -268,49 +265,26 @@ zeniva_first_html_code = f"""
         <div class="metric-container">
     <div class="metric-row">
         <p class="metric-left">Today's Follower Gain</p>
-        <p class="metric-right">{int(zeniva_instagram['today_followers'].iloc[0])}</p>
+        <p class="metric-right">{int(exarta_instagram['today_followers'].iloc[0])}</p>
     </div>
     <div class="metric-line"></div>
- 
+
     <div class="metric-row">
         <p class="metric-left">Yesterday's Follower Gain</p>
-        <p class="metric-right">{int(zeniva_instagram['yesterday_followers'].iloc[0])}</p>
+        <p class="metric-right">{int(exarta_instagram['yesterday_followers'].iloc[0])}</p>
     </div>
     <div class="metric-line"></div>
- 
+
     <div class="metric-row">
         <p class="metric-left">Total Followers</p>
-        <p class="metric-right">{int(zeniva_instagram['total_followers'].iloc[0])}</p>
+        <p class="metric-right">{int(exarta_instagram['total_followers'].iloc[0])}</p>
     </div>
 </div>
     </div>
-    <div class="main-card">
-        <div class="image-container">
-            <img src="https://i.ibb.co/8dLDtzM/image-11.png" alt="logo">
-        </div>
-        <div class="metric-container">
-    <div class="metric-row">
-        <p class="metric-left">Today's Follower Gain</p>
-        <p class="metric-right">{int(zeniva_facebook['today_followers'].iloc[0])}</p>
+    
     </div>
-    <div class="metric-line"></div>
- 
-    <div class="metric-row">
-        <p class="metric-left">Yesterday's Follower Gain</p>
-        <p class="metric-right">{int(zeniva_facebook['yesterday_followers'].iloc[0])}</p>
-    </div>
-    <div class="metric-line"></div>
- 
-    <div class="metric-row">
-        <p class="metric-left">Total Followers</p>
-        <p class="metric-right">{int(zeniva_facebook['total_followers'].iloc[0])}</p>
-    </div>
-</div>
-    </div>
-   
-   
+
+
 </div>
 """
- 
- 
-components.html(zeniva_first_html_code, height=1000)
+components.html(exarta_first_html_code, height=1000)

@@ -101,7 +101,7 @@ def odyessey_values_for_insights():
 
 def exarta_values_for_insights():
     data = live_data.fillna(0)
-    exarta_data = data[data["product"] == "odyessey"]
+    exarta_data = data[data["product"] == "exarta"]
     exarta_youtube = exarta_data[exarta_data["platform"] == "youtube"]
     exarta_x = exarta_data[exarta_data["platform"] == "x"]
     exarta_facebook = exarta_data[exarta_data["platform"] == "facebook"]

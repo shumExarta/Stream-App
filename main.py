@@ -1,5 +1,6 @@
 import streamlit as st
-st.set_page_config(layout='wide')
+import time
+st.set_page_config(layout='wide', initial_sidebar_state='collapsed')
 
 # Custom CSS to style the cards
 st.markdown("""
@@ -192,3 +193,6 @@ with col2:
         </div>
         """, unsafe_allow_html=True
     )
+    
+time.sleep(1)
+st.switch_page("pages/zeniva_first.py")
