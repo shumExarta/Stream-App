@@ -1,6 +1,7 @@
 import pandas as pd
 import streamlit as st
 import plotly.express as px
+import plotly.graph_objects as go
 
 live_data = pd.read_csv("graph_data_final.csv")
 
@@ -80,7 +81,7 @@ def zeniva_values_for_insights():
         zeniva_instagram[["total_followers", "today_followers", "yesterday_followers"]],
         zeniva_facebook[["total_followers", "today_followers", "yesterday_followers"]],
     )
-    
+
 
 def odyessey_values_for_insights():
     data = live_data.fillna(0)
@@ -97,7 +98,7 @@ def odyessey_values_for_insights():
         odyessey_instagram[["total_followers", "today_followers", "yesterday_followers"]],
         odyessey_facebook[["total_followers", "today_followers", "yesterday_followers"]],
     )
-    
+
 
 def exarta_values_for_insights():
     data = live_data.fillna(0)
@@ -116,28 +117,27 @@ def exarta_values_for_insights():
     )
 
 
-
 def plot_histograms_zeniva(product_name, platform_name):
     df = pd.read_csv('graph_data_final.csv')
     df = df.fillna(0)
     df = df[df['product'] == product_name]
-    
+
     platform_metrics = {
         'youtube': ['clicks', 'views', 'daily_spend'],
         'meta': ['clicks', 'reach', 'daily_spend'],
         'shopify': ['clicks', 'daily_spend'],
         'ppc': ['clicks', 'daily_spend', 'impressions'],
     }
-    
+
     if platform_name in platform_metrics:
         selected_metrics = platform_metrics[platform_name]
     else:
         st.error(f"Platform {platform_name} not recognised.")
         return
-    
+
     df_platform = df[df['platform'] == platform_name]
     df_grouped = df_platform[['date'] + selected_metrics].melt(id_vars='date', var_name='Metric', value_name='Value')
-    
+
     color_discrete_map = {
         'clicks': '#BC679C',
         'views': '#F68C5B',
@@ -155,41 +155,35 @@ def plot_histograms_zeniva(product_name, platform_name):
         width=800,
         color_discrete_map=color_discrete_map,
         )
-    
+
     fig.update_layout(
     plot_bgcolor='rgba(0,0,0,0)',  # Transparent background for the plot area
     paper_bgcolor='rgba(0,0,0,0)',  # Transparent background for the whole figure,
-    font_color='white'
+    font_color='white',
+    bargap = 0.7,
+    bargroupgap = 0.2
     )
-    
+
     fig.update_layout(
         legend={
-            'orientation': 'h',
-            'yanchor': 'bottom',
-            'y': -0.3,  
-            'xanchor': 'center',
-            'x': 0.5,    
-            'font': {
-            'color': 'white'  # Legend text color
-        }
+            "orientation": "h",
+            "yanchor": "bottom",
+            "y": -0.3,
+            "xanchor": "center",
+            "x": 0.5,
+            "font": {"color": "white"},  # Legend text color
         },
         xaxis_title=None,
         yaxis_title=None,
-        legend_title_text='',  
+        legend_title_text="",
     )
-    
+
     fig_html = fig.to_html(include_plotlyjs='cdn')
 
-    # Render the HTML in Streamlit
     return fig_html
 
 
-
-
-
-
-
-# Ziniva comparison overview part 
+# Ziniva comparison overview part
 
 def zeniva_overview(df):
     filter_product_zin = df[df['Product'] == 'Zeniva']
@@ -213,9 +207,8 @@ def zeniva_overview(df):
 
     return today_paid_installs, todays_free_installs, total_installs, today__paid_uninstalls, today_free_uninstalls, total_uninstalls
 
-    
 
-# Odyessey comparison overview part 
+# Odyessey comparison overview part
 def odyessey_overview(df):
     filter_product_zin = df[df['Product'] == 'Odassay']
     today_forge_installs = filter_product_zin['todays_forge_installs'].sum()
@@ -253,4 +246,3 @@ def odyessey_values_for_insights():
         odyessey_instagram[["total_followers", "today_followers", "yesterday_followers"]],
         odyessey_facebook[["total_followers", "today_followers", "yesterday_followers"]],
     )
-    
