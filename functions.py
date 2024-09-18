@@ -160,8 +160,15 @@ def plot_histograms_zeniva(product_name, platform_name):
     plot_bgcolor='rgba(0,0,0,0)',  # Transparent background for the plot area
     paper_bgcolor='rgba(0,0,0,0)',  # Transparent background for the whole figure,
     font_color='white',
+    barcornerradius="5`0%",
     bargap = 0.7,
-    bargroupgap = 0.2
+    bargroupgap = 0.2,
+    xaxis=dict(
+            showgrid=False  # Disable vertical grid lines
+        ),
+        yaxis=dict(
+            showgrid=False  # Disable horizontal grid lines
+        )
     )
 
     fig.update_layout(

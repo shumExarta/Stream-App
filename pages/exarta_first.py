@@ -1,5 +1,6 @@
 import streamlit as st
 import streamlit.components.v1 as components
+import time
 from functions import exarta_values_for_insights
 st.set_page_config(layout='wide', initial_sidebar_state='collapsed')
 
@@ -143,6 +144,32 @@ exarta_first_html_code = f"""
             line-height: normal;
             text-align: right;
         }}
+                .progress-container {{
+    width: 100%; /* Full width relative to the parent container */
+    max-width: 1800px; /* Maximum width to ensure it doesn't exceed 1800px */
+    height: 10px;
+    background-color: #323743; /* Background color of the entire container */
+    border-radius: 5px; /* No rounding for the container edges */
+    overflow: hidden; /* Ensures that the progress bar stays within the container */
+    margin: 0 auto; /* Center the progress container */
+}}
+ 
+.progress-bar {{
+    width: 0; /* Initial width of the progress bar */
+    height: 100%; /* Full height of the container */
+    background: #495161; /* Progress bar color */
+    border-radius: 5px;
+    animation: grow 60s linear forwards; /* Animation: grow over 10 seconds */
+}}
+ 
+@keyframes grow {{
+    from {{
+        width: 0;
+    }}
+    to {{
+        width: 100%; /* Grow to full width */
+    }}
+}}
     </style>
 
         <head>
@@ -151,7 +178,7 @@ exarta_first_html_code = f"""
 
     <div class="header">
         <div style="display: flex; justify-content: space-between; align-items: center;">
-            <img src="https://s3-alpha-sig.figma.com/img/eade/289a/e18354455a369ad15c69d06cf3a4b8d9?Expires=1727049600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=WIBKSu6Km2Ruzy2rd1AES~qlUV14~IIUDn3Xf0hDzJmuIwJL~D5IJpEbxtON7d23YoKvR9p779yudRx17-rFfwb-D5E-sNl3bTsflBxzKGkZ51VDYRqP~vhDAUKjKEV4~iAY-fqOsNy7DyhzOhMkDxfZF6SxZGmh7DGrOqT8KlJ6i2mzH6IGSkn0G7LDUDpmeS0CBxpcwXYaeJw8ZXYsFiPm4ZzvC5z17axAsRIxs9DExbgSKMDI2Wo32WatugfErS5s4kJJktNsjDhrZ262aEWWGFnetUNuYzXnACstbuokoWV~WhYdeBHhlVmiIViODyXh6W4n7TnHG0qon-fhbA__" alt="logo" style="width:100px;">
+             <img style="padding-left:100px;" src="https://i.ibb.co/0jT4xCS/Logo-2-1.png" alt="logo" style="width:100px;">
             <div>
                 <a href="#overview" style="margin-right: 20px; padding-right:50px; color: #F0F0F0; font-family: 'Roboto', sans-serif; font-size: 25px; font-style: normal; font-weight: 300; line-height: normal; text-decoration: none;">Overview</a>
 
@@ -164,6 +191,9 @@ exarta_first_html_code = f"""
             </div>
         </div>
     </div>
+     <div class="progress-container">
+    <div class="progress-bar"></div>
+</div>
     <h2 style='text-align:left; color:white;font-family: Roboto; font-size: 30px; font-style: normal;font-weight: 600; line-height: normal;'>Social Media</h2>
     <div class="main-container">
     <div class="main-card">
@@ -260,7 +290,7 @@ exarta_first_html_code = f"""
     </div>
     <div class="main-card">
         <div class="image-container">
-            <img src="https://s3-alpha-sig.figma.com/img/232a/6d02/35389cdc480a936cb4b29721bb3a9670?Expires=1727654400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=hN8iUIM3AUxTXOHmt9VlXZ3uQxhl63pu1rEe8AzWjKArB7syWtDUbkz5yvkgZPytq3iRCUKqjUrzPp-MVCECluLH2KmgGrEK0W~galdt35yKHAme~gDsCb7ZeSJ0T20h4gfd4qpCCP82AWxBrK7ntSP80rVbSzQ3cwqknaXyMmtAC7Q5bYx9Dkor8ObVXax0NGQy26ASYHx8k9qfD3icj-mkQFrGzd4bsgF2g2~3d~dC2PK746Ez7TDcvwoBagvlEIky0YQzLYkOvrEmJmQaWHSZhPGebK-xumTxYYojLTrgaYaXA~ogiXiPuRKgSyLn3MnjY1mihWL0J3COVcH2kA__" alt="logo">
+            <img src="https://i.ibb.co/XFh4Bvy/insta.png" alt="logo">
         </div>
         <div class="metric-container">
     <div class="metric-row">
@@ -288,3 +318,5 @@ exarta_first_html_code = f"""
 </div>
 """
 components.html(exarta_first_html_code, height=1000)
+time.sleep(60)
+st.switch_page("./main.py")

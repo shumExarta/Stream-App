@@ -2,7 +2,8 @@ import streamlit as st
 import streamlit.components.v1 as components
 import time
 from functions import plot_histograms_zeniva
-st.set_page_config(layout='wide', initial_sidebar_state='collapsed')
+ 
+st.set_page_config(layout="wide", initial_sidebar_state='collapsed')
  
 zeniva_youtube_plot = plot_histograms_zeniva("zeniva", "youtube")
 zeniva_meta_plot = plot_histograms_zeniva("zeniva", "meta")
@@ -10,7 +11,7 @@ zeniva_shopify_plot = plot_histograms_zeniva("zeniva", "shopify")
 zeniva_ppc_plot = plot_histograms_zeniva("zeniva", "ppc")
  
  
-zeniva_second_html_code = f"""
+html_code = f"""
     <style>
     .header {{
         background-color: #20232A;
@@ -46,6 +47,20 @@ zeniva_second_html_code = f"""
     width: 100px; /* Adjust as needed */
     height: auto;
 }}
+ 
+ .image-containery {{
+    position: absolute;
+    top: 3px; /* Adjust as needed */
+    left: 10px; /* Adjust as needed */
+    background-color: #272B34; /* Match the background color if necessary */
+}}
+ 
+.image-containery img {{
+    width: 100px; /* Adjust as needed */
+    height: auto;
+}}
+ 
+ 
     .card {{
         background-color: #343844;
         padding: 15px;
@@ -139,6 +154,33 @@ zeniva_second_html_code = f"""
         .buttons button:hover {{
             background-color: #181A1F;
         }}
+.progress-container {{
+    width: 100%; /* Full width relative to the parent container */
+    max-width: 1800px; /* Maximum width to ensure it doesn't exceed 1800px */
+    height: 10px;
+    background-color: #323743; /* Background color of the entire container */
+    border-radius: 5px; /* No rounding for the container edges */
+    overflow: hidden; /* Ensures that the progress bar stays within the container */
+    margin: 0 auto; /* Center the progress container */
+}}
+ 
+.progress-bar {{
+    width: 0; /* Initial width of the progress bar */
+    height: 100%; /* Full height of the container */
+    background: #495161; /* Progress bar color */
+    border-radius: 5px;
+    animation: grow 60s linear forwards; /* Animation: grow over 10 seconds */
+}}
+ 
+@keyframes grow {{
+    from {{
+        width: 0;
+    }}
+    to {{
+        width: 100%; /* Grow to full width */
+    }}
+}}
+       
     </style>
  
    <head>
@@ -147,7 +189,7 @@ zeniva_second_html_code = f"""
  
     <div class="header">
         <div style="display: flex; justify-content: space-between; align-items: center;">
-            <img src="https://s3-alpha-sig.figma.com/img/eade/289a/e18354455a369ad15c69d06cf3a4b8d9?Expires=1727049600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=WIBKSu6Km2Ruzy2rd1AES~qlUV14~IIUDn3Xf0hDzJmuIwJL~D5IJpEbxtON7d23YoKvR9p779yudRx17-rFfwb-D5E-sNl3bTsflBxzKGkZ51VDYRqP~vhDAUKjKEV4~iAY-fqOsNy7DyhzOhMkDxfZF6SxZGmh7DGrOqT8KlJ6i2mzH6IGSkn0G7LDUDpmeS0CBxpcwXYaeJw8ZXYsFiPm4ZzvC5z17axAsRIxs9DExbgSKMDI2Wo32WatugfErS5s4kJJktNsjDhrZ262aEWWGFnetUNuYzXnACstbuokoWV~WhYdeBHhlVmiIViODyXh6W4n7TnHG0qon-fhbA__" alt="logo" style="width:100px;">
+            <img style="padding-left:100px;" src="https://i.ibb.co/0jT4xCS/Logo-2-1.png" alt="logo" style="width:100px;">
             <div>
                  <a href="#overview" style="margin-right: 20px; padding-right:50px; color: #F0F0F0; font-family: 'Roboto', sans-serif; font-size: 25px; font-style: normal; font-weight: 300; line-height: normal; text-decoration: none;">Overview</a>
  
@@ -159,7 +201,11 @@ zeniva_second_html_code = f"""
  
             </div>
         </div>
+       
     </div>
+         <div class="progress-container">
+    <div class="progress-bar"></div>
+</div>
      <div class="container">
         <h2 style='text-align:left; color:white;font-family: Roboto; font-size: 30px; font-style: normal;font-weight: 600; line-height: normal;' >Paid Campaigns</h2>
         <div class="buttons">
@@ -170,7 +216,7 @@ zeniva_second_html_code = f"""
     </div>
     <div class="main-container">
     <div class="main-card">
-        <div class="image-container">
+        <div class="image-containery">
             <img src="https://s3-alpha-sig.figma.com/img/1498/18fb/0109e9eb56d423e70f5960980428bd58?Expires=1727049600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=SyHFjAnXlmYdYKWgvjqlg92uj8GHJDrg-dGbSfrmWFe-U3ZqoXKYBE37yAoeOFRH6OKsxSCi-Lz56srq-JJVMAxasuua05uVj3iAjLQdLjj42QbsS3BP~STGfGuChceh1gKUkwHz8-kJFcZ3fdBctjTv~x2KtCRj0p~e8Y6nyRsNTV4GyjCxjglPCZPTuoY2I7v95PvveiM5DoLLblfLL872rCNmvz~mf~zOEM~neP2vorcddB5MGLkKCvdJuAic3qR5zWkEzNdQd3dQ7A1ap-XxMgtbglne1oP2xaP~Tf5I0Q14CfgntY54P5lOHCKh0tDxBaDrynK18TzAJlXmug__" alt="logo">
         </div>
        <div class="graph-container">
@@ -208,6 +254,6 @@ zeniva_second_html_code = f"""
  
  
 # Embed the custom HTML with st.components.v1.html
-components.html(zeniva_second_html_code, height=1000)
-time.sleep(10)
+components.html(html_code, height=1000)
+time.sleep(60)
 st.switch_page("pages/ody_first.py")
