@@ -159,7 +159,7 @@ html_code = f"""
     max-width: 1800px; /* Maximum width to ensure it doesn't exceed 1800px */
     height: 10px;
     background-color: #323743; /* Background color of the entire container */
-    border-radius: 5px; /* No rounding for the container edges */
+    border-radius: 0px; /* No rounding for the container edges */
     overflow: hidden; /* Ensures that the progress bar stays within the container */
     margin: 0 auto; /* Center the progress container */
 }}

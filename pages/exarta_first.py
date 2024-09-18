@@ -45,14 +45,14 @@ exarta_first_html_code = f"""
 
 .image-containerx {{
     position: absolute;
-    top: 20px; /* Adjust as needed */
+    top: 23px; /* Adjust as needed */
     left: 20px; /* Adjust as needed */
     background-color: #272B34; /* Match the background color if necessary */
 }}
 
 .image-containerx img {{
-    width: 40px; /* Adjust as needed */
-    height: auto;
+    width: 35px; /* Adjust as needed */
+    height: 32px;
 }}
     .card {{
         background-color: #343844;
@@ -149,7 +149,7 @@ exarta_first_html_code = f"""
     max-width: 1800px; /* Maximum width to ensure it doesn't exceed 1800px */
     height: 10px;
     background-color: #323743; /* Background color of the entire container */
-    border-radius: 5px; /* No rounding for the container edges */
+    border-radius: 0px; /* No rounding for the container edges */
     overflow: hidden; /* Ensures that the progress bar stays within the container */
     margin: 0 auto; /* Center the progress container */
 }}
@@ -170,6 +170,31 @@ exarta_first_html_code = f"""
         width: 100%; /* Grow to full width */
     }}
 }}
+
+ .image-containery {{
+    position: absolute;
+    top: 0px; /* Adjust as needed */
+    left: 10px; /* Adjust as needed */
+    background-color: #272B34; /* Match the background color if necessary */
+}}
+ 
+.image-containery img {{
+    width: 100px; /* Adjust as needed */
+    height: 80px;
+}}
+
+.image-containeri {{
+    position: absolute;
+    top: 20px; /* Adjust as needed */
+    left: 20px; /* Adjust as needed */
+    background-color: #272B34; /* Match the background color if necessary */
+}}
+
+.image-containeri img {{
+    width: 105px; /* Adjust as needed */
+    height: 37px;
+}}
+
     </style>
 
         <head>
@@ -197,7 +222,7 @@ exarta_first_html_code = f"""
     <h2 style='text-align:left; color:white;font-family: Roboto; font-size: 30px; font-style: normal;font-weight: 600; line-height: normal;'>Social Media</h2>
     <div class="main-container">
     <div class="main-card">
-        <div class="image-container">
+        <div class="image-containery">
             <img src="https://s3-alpha-sig.figma.com/img/1498/18fb/0109e9eb56d423e70f5960980428bd58?Expires=1727049600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=SyHFjAnXlmYdYKWgvjqlg92uj8GHJDrg-dGbSfrmWFe-U3ZqoXKYBE37yAoeOFRH6OKsxSCi-Lz56srq-JJVMAxasuua05uVj3iAjLQdLjj42QbsS3BP~STGfGuChceh1gKUkwHz8-kJFcZ3fdBctjTv~x2KtCRj0p~e8Y6nyRsNTV4GyjCxjglPCZPTuoY2I7v95PvveiM5DoLLblfLL872rCNmvz~mf~zOEM~neP2vorcddB5MGLkKCvdJuAic3qR5zWkEzNdQd3dQ7A1ap-XxMgtbglne1oP2xaP~Tf5I0Q14CfgntY54P5lOHCKh0tDxBaDrynK18TzAJlXmug__" alt="logo">
         </div>
     <div class="metric-container">
@@ -289,7 +314,7 @@ exarta_first_html_code = f"""
 </div>
     </div>
     <div class="main-card">
-        <div class="image-container">
+        <div class="image-containeri">
             <img src="https://i.ibb.co/XFh4Bvy/insta.png" alt="logo">
         </div>
         <div class="metric-container">

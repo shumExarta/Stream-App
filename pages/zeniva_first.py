@@ -47,27 +47,17 @@ html_code = f"""
  
 .image-containery {{
     position: absolute;
-    top: 3px; /* Adjust as needed */
+    top: 0px; /* Adjust as needed */
     left: 10px; /* Adjust as needed */
     background-color: #272B34; /* Match the background color if necessary */
 }}
  
 .image-containery img {{
     width: 100px; /* Adjust as needed */
-    height: auto;
+    height: 80px;
 }}
  
-.image-containerx {{
-    position: absolute;
-    top: 20px; /* Adjust as needed */
-    left: 20px; /* Adjust as needed */
-    background-color: #272B34; /* Match the background color if necessary */
-}}
- 
-.image-containerx img {{
-    width: 33px; /* Adjust as needed */
-    height: auto;
-}}
+
     .card {{
         background-color: #343844;
         padding: 15px;
@@ -166,7 +156,7 @@ html_code = f"""
     max-width: 1800px; /* Maximum width to ensure it doesn't exceed 1800px */
     height: 10px;
     background-color: #323743; /* Background color of the entire container */
-    border-radius: 5px; /* No rounding for the container edges */
+    border-radius: 0px; /* No rounding for the container edges */
     overflow: hidden; /* Ensures that the progress bar stays within the container */
     margin: 0 auto; /* Center the progress container */
 }}
@@ -186,6 +176,30 @@ html_code = f"""
     to {{
         width: 100%; /* Grow to full width */
     }}
+}}
+
+.image-containeri {{
+    position: absolute;
+    top: 20px; /* Adjust as needed */
+    left: 20px; /* Adjust as needed */
+    background-color: #272B34; /* Match the background color if necessary */
+}}
+
+.image-containeri img {{
+    width: 105px; /* Adjust as needed */
+    height: 37px;
+}}
+
+.image-containerx {{
+    position: absolute;
+    top: 23px; /* Adjust as needed */
+    left: 20px; /* Adjust as needed */
+    background-color: #272B34; /* Match the background color if necessary */
+}}
+
+.image-containerx img {{
+    width: 35px; /* Adjust as needed */
+    height: 32px;
 }}
     </style>
  
@@ -306,7 +320,7 @@ html_code = f"""
 </div>
     </div>
     <div class="main-card">
-        <div class="image-container">
+        <div class="image-containeri">
             <img src="https://i.ibb.co/XFh4Bvy/insta.png" alt="logo">
         </div>
         <div class="metric-container">
