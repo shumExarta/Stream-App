@@ -2,8 +2,30 @@ import streamlit as st
 import streamlit.components.v1 as components
 import time
 from functions import exarta_values_for_insights
+
 st.set_page_config(layout='wide', initial_sidebar_state='collapsed')
 
+# Inject custom CSS to target the entire page background
+st.markdown(
+    """
+    <style>
+    /* Set the entire page background to black */
+    html, body, [class^="st-emotion-cache"] {
+        background-color: #191B21;
+        color: white; /* Optional: Make the text color white for contrast */
+    }
+
+    
+    
+    /* Ensure all content aligns properly in the dark background */
+    .stApp {
+        background-color: #191B21;
+        color: white;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 exarta_youtube, exarta_x, exarta_facebook, exarta_linkedin, exarta_instagram = exarta_values_for_insights()
 exarta_first_html_code = f"""
     <style>
@@ -205,13 +227,13 @@ exarta_first_html_code = f"""
         <div style="display: flex; justify-content: space-between; align-items: center;">
              <img style="padding-left:100px;" src="https://i.ibb.co/0jT4xCS/Logo-2-1.png" alt="logo" style="width:100px;">
             <div>
-                <a href="#overview" style="margin-right: 20px; padding-right:50px; color: #F0F0F0; font-family: 'Roboto', sans-serif; font-size: 25px; font-style: normal; font-weight: 300; line-height: normal; text-decoration: none;">Overview</a>
-
-                <a href="#zeniva" style="margin-right: 20px; padding-right:50px; color: #F0F0F0; font-family: 'Roboto', sans-serif; font-size: 25px; font-style: normal; font-weight: 300; line-height: normal; text-decoration: none;">Zeniva</a>
-
-                <a href="#odyessey" style="margin-right: 20px; padding-right:50px; color: #F0F0F0; font-family: 'Roboto', sans-serif; font-size: 25px; font-style: normal; font-weight: 300; line-height: normal; text-decoration: none;">Odyessey</a>
-
-                <a href="#exarta" style="margin-right: 20px; padding-right:50px; color: #F0F0F0; font-family: 'Roboto', sans-serif; font-size: 25px; font-style: normal; font-weight: 300; line-height: normal; text-decoration: underline; text-decoration-color: none;">Exarta</a>
+                <a href="#overview" style="margin-right: 20px; padding-right:100px; color: #F0F0F0; font-family: 'Roboto', sans-serif; font-size: 25px; font-style: normal; font-weight: 300; line-height: normal; text-decoration: none;">Overview</a>
+ 
+                <a href="#zeniva" style="margin-right: 20px; padding-right:100px; color: #F0F0F0; font-family: 'Roboto', sans-serif; font-size: 25px; font-style: normal; font-weight: 300; line-height: normal; text-decoration: none; text-decoration-color: none;">Zeniva</a>
+ 
+                <a href="#odyessey" style="margin-right: 20px; padding-right:100px; color: #F0F0F0; font-family: 'Roboto', sans-serif; font-size: 25px; font-style: normal; font-weight: 300; line-height: normal; text-decoration: none;">Odyessey</a>
+ 
+                <a href="#exarta" style="padding-right:100px; color: #F0F0F0; font-family: 'Roboto', sans-serif; font-size: 25px; font-style: normal; font-weight: 300; line-height: normal; text-decoration: underline;">Exarta</a>
 
             </div>
         </div>

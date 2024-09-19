@@ -3,7 +3,30 @@ import streamlit.components.v1 as components
 import time
 from functions import plot_histograms_zeniva
  
-st.set_page_config(layout="wide", initial_sidebar_state='collapsed')
+st.set_page_config(layout='wide', initial_sidebar_state='collapsed')
+
+# Inject custom CSS to target the entire page background
+st.markdown(
+    """
+    <style>
+    /* Set the entire page background to black */
+    html, body, [class^="st-emotion-cache"] {
+        background-color: #191B21;
+        color: white; /* Optional: Make the text color white for contrast */
+    }
+
+    
+    
+    /* Ensure all content aligns properly in the dark background */
+    .stApp {
+        background-color: #191B21;
+        color: white;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
  
 zeniva_youtube_plot = plot_histograms_zeniva("zeniva", "youtube")
 zeniva_meta_plot = plot_histograms_zeniva("zeniva", "meta")
@@ -47,6 +70,31 @@ html_code = f"""
     width: 100px; /* Adjust as needed */
     height: auto;
 }}
+
+.image-containers {{
+    position: absolute;
+    top: 12px; /* Adjust as needed */
+    left: 20px; /* Adjust as needed */
+    background-color: #272B34; /* Match the background color if necessary */
+}}
+ 
+.image-containers img {{
+    width: 100px; /* Adjust as needed */
+    height: 45px;
+}}
+
+.image-containerp {{
+    position: absolute;
+    top: 22px; /* Adjust as needed */
+    left: 20px; /* Adjust as needed */
+    background-color: #272B34; /* Match the background color if necessary */
+}}
+ 
+.image-containerp img {{
+    width: 100px; /* Adjust as needed */
+    height: 25px;
+}}
+
  
  .image-containery {{
     position: absolute;
@@ -112,8 +160,10 @@ html_code = f"""
     }}
    
      .graph-container {{
+        padding-top:26px;
+     
         width: 100%;
-        height: 100%;
+        height: 90%;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -191,13 +241,13 @@ html_code = f"""
         <div style="display: flex; justify-content: space-between; align-items: center;">
             <img style="padding-left:100px;" src="https://i.ibb.co/0jT4xCS/Logo-2-1.png" alt="logo" style="width:100px;">
             <div>
-                 <a href="#overview" style="margin-right: 20px; padding-right:50px; color: #F0F0F0; font-family: 'Roboto', sans-serif; font-size: 25px; font-style: normal; font-weight: 300; line-height: normal; text-decoration: none;">Overview</a>
+                 <a href="#overview" style="margin-right: 20px; padding-right:100px; color: #F0F0F0; font-family: 'Roboto', sans-serif; font-size: 25px; font-style: normal; font-weight: 300; line-height: normal; text-decoration: none;">Overview</a>
  
-                <a href="#zeniva" style="margin-right: 20px; padding-right:50px; color: #F0F0F0; font-family: 'Roboto', sans-serif; font-size: 25px; font-style: normal; font-weight: 300; line-height: normal; text-decoration: underline; text-decoration-color: none;">Zeniva</a>
+                <a href="#zeniva" style="margin-right: 20px; padding-right:100px; color: #F0F0F0; font-family: 'Roboto', sans-serif; font-size: 25px; font-style: normal; font-weight: 300; line-height: normal; text-decoration: underline; text-decoration-color: none;">Zeniva</a>
  
-                <a href="#odyessey" style="margin-right: 20px; padding-right:50px; color: #F0F0F0; font-family: 'Roboto', sans-serif; font-size: 25px; font-style: normal; font-weight: 300; line-height: normal; text-decoration: none;">Odyessey</a>
+                <a href="#odyessey" style="margin-right: 20px; padding-right:100px; color: #F0F0F0; font-family: 'Roboto', sans-serif; font-size: 25px; font-style: normal; font-weight: 300; line-height: normal; text-decoration: none;">Odyessey</a>
  
-                <a href="#exarta" style="padding-right:50px; color: #F0F0F0; font-family: 'Roboto', sans-serif; font-size: 25px; font-style: normal; font-weight: 300; line-height: normal; text-decoration: none;">Exarta</a>
+                <a href="#exarta" style="padding-right:100px; color: #F0F0F0; font-family: 'Roboto', sans-serif; font-size: 25px; font-style: normal; font-weight: 300; line-height: normal; text-decoration: none;">Exarta</a>
  
             </div>
         </div>
@@ -232,7 +282,7 @@ html_code = f"""
         </div>
     </div>
      <div class="main-card">
-        <div class="image-container">
+        <div class="image-containers">
             <img src="https://s3-alpha-sig.figma.com/img/e6bd/3966/e9e44a17e0bf09233723ecd1e89cd914?Expires=1727654400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=GZyVlz5q1wWIZriBDzhSv4QNpXx1cJCt5CJyn4FdlEn4rhh8cBpHVnIz30fnJU7MQogfJC5K4C8MfAVmu2FdCHlildJeHmrTwGwZl5ddiJYK4vb7BSKFNeszaUr1yLJTlGao~iYzVZbGV311PRMbbWRgsYhLXynI7wYsXei~-TbVX2~Wv8V4oXd22JLRVw5beLjopNEeT7-SX9Y-FVZYZ8mbOSvYyDwPAtGAnZ9KicNZ8CLDn9zeCYDQoK5sLYZiI8jnKvcXUvWlt5XzAXK0fin-mt3YXDZFYTa5jyqcbrCG01pHROSbWbaznxt8kSQkZlQI38V6Lu7zvtvJ~gPb0g__" alt="logo">
         </div>
         <div class="graph-container">
@@ -240,7 +290,7 @@ html_code = f"""
         </div>
     </div>
     <div class="main-card">
-        <div class="image-container">
+        <div class="image-containerp">
             <img src="https://s3-alpha-sig.figma.com/img/1afc/9544/949af83cd742b7811af1bcdbd4733987?Expires=1727654400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=pkNEntW5QoLf2UaMO3kS6Asf2rsEOLDF81e0GORQQTQoabuaE1xd3OzpckmlBiw6SNUrxWugKqxOoDH97Ivm4Ru3i0Cx0EFvi8nI9pZ1H~HDYleInX~FgBNqtK3is~~1LZrhGWEcoBoG09pW0MX55Yp7O7~8kDTt6ZH692YhGvJ4-SAm2wOPdSjQ-rRLVlwaO0dNmgOaLyKN~Tq7d2tEaGcG3OyzB2SSK2JuQqtYid6SEXrC0ysf~go9WZ2oPnj8o5cQMdPrvlpsL~DaKl4-YXolY5AqSZq31oZ1gjgj2gLT6YLmLYLG82OBY47Z5sUzlvmKI9bGm4pyLUhlQjhkkg__" alt="logo">
         </div>
         <div class="graph-container">

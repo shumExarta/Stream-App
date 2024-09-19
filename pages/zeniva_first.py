@@ -2,9 +2,33 @@ import streamlit as st
 import streamlit.components.v1 as components
 import time
 from functions import zeniva_values_for_insights
+
+
 st.set_page_config(layout='wide', initial_sidebar_state='collapsed')
- 
- 
+
+# Inject custom CSS to target the entire page background
+st.markdown(
+    """
+    <style>
+    /* Set the entire page background to black */
+    html, body, [class^="st-emotion-cache"] {
+        background-color: #191B21;
+        color: white; /* Optional: Make the text color white for contrast */
+    }
+
+    
+    
+    /* Ensure all content aligns properly in the dark background */
+    .stApp {
+        background-color: #191B21;
+        color: white;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+
  
 zeniva_youtube, zeniva_x, zeniva_tiktok, zeniva_linkedin, zeniva_instagram, zeniva_facebook = zeniva_values_for_insights()
  
@@ -211,13 +235,13 @@ html_code = f"""
         <div style="display: flex; justify-content: space-between; align-items: center;">
            <img style="padding-left:100px;" src="https://i.ibb.co/0jT4xCS/Logo-2-1.png" alt="logo" style="width:100px;">
             <div>
-                 <a href="#overview" style="margin-right: 20px; padding-right:50px; color: #F0F0F0; font-family: 'Roboto', sans-serif; font-size: 25px; font-style: normal; font-weight: 300; line-height: normal; text-decoration: none;">Overview</a>
+                                <a href="#overview" style="margin-right: 20px; padding-right:100px; color: #F0F0F0; font-family: 'Roboto', sans-serif; font-size: 25px; font-style: normal; font-weight: 300; line-height: normal; text-decoration: none;">Overview</a>
  
-                <a href="#zeniva" style="margin-right: 20px; padding-right:50px; color: #F0F0F0; font-family: 'Roboto', sans-serif; font-size: 25px; font-style: normal; font-weight: 300; line-height: normal; text-decoration: underline; text-decoration-color: none;">Zeniva</a>
+                <a href="#zeniva" style="margin-right: 20px; padding-right:100px; color: #F0F0F0; font-family: 'Roboto', sans-serif; font-size: 25px; font-style: normal; font-weight: 300; line-height: normal; text-decoration: underline; text-decoration-color: none;">Zeniva</a>
  
-                <a href="#odyessey" style="margin-right: 20px; padding-right:50px; color: #F0F0F0; font-family: 'Roboto', sans-serif; font-size: 25px; font-style: normal; font-weight: 300; line-height: normal; text-decoration: none;">Odyessey</a>
+                <a href="#odyessey" style="margin-right: 20px; padding-right:100px; color: #F0F0F0; font-family: 'Roboto', sans-serif; font-size: 25px; font-style: normal; font-weight: 300; line-height: normal; text-decoration: none;">Odyessey</a>
  
-                <a href="#exarta" style="padding-right:50px; color: #F0F0F0; font-family: 'Roboto', sans-serif; font-size: 25px; font-style: normal; font-weight: 300; line-height: normal; text-decoration: none;">Exarta</a>
+                <a href="#exarta" style="padding-right:100px; color: #F0F0F0; font-family: 'Roboto', sans-serif; font-size: 25px; font-style: normal; font-weight: 300; line-height: normal; text-decoration: none;">Exarta</a>
  
             </div>
         </div>

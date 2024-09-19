@@ -1,15 +1,107 @@
 import streamlit as st
 import streamlit.components.v1 as components
 import time
-from functions import zeniva_overview, odyessey_overview
+from functions import zeniva_overview, odyssey_overview
 import pandas as pd
+from datetime import datetime
+from datetime import datetime, timedelta
+
+
+
+#############################################################
+import pandas as pd
+from datetime import datetime
+
+# Get today's date
+today = datetime.today()
+
+# Manually format day and month without leading zeros
+today_date = f"{today.day}/{today.month}/{today.strftime('%y')}"
+
+# Append .xlsx to the formatted date
+filename = today_date.replace('/', '-') + '.xlsx'
+
+print(filename)
+# Load the Excel file
+excel_file = filename
+# Create an empty DataFrame to hold all data
+all_data = pd.DataFrame()
+desired_sheets = ['Sheet0', 'Sheet1', 'Sheet2']
+# Read all sheets and concatenate them
+with pd.ExcelFile(excel_file) as xls:
+    for sheet_name in xls.sheet_names:
+        # Read each sheet into a DataFrame
+        if sheet_name in desired_sheets:
+            sheet_data = pd.read_excel(xls, sheet_name=sheet_name)
+            # Concatenate the data
+            all_data = pd.concat([all_data, sheet_data], ignore_index=True)
+
+# Replace empty cells (NaN) with 'NA'
+all_data = all_data.fillna('NA')
+
+# Convert the 'date' column to datetime and format it as 'MM/DD/YYYY'
+all_data['date'] = pd.to_datetime(all_data['date']).dt.strftime('%m/%d/%Y')
+
+# Save the combined data to a CSV file
+csv_name = today_date.replace('/', '-') + '-Graphs_Data.csv'
+all_data.to_csv(csv_name, index=False)
+
+
+
+
+# Process the "comparisons-{date}" sheet separately
+comparison_sheet_name = f"comparisons"
+
+with pd.ExcelFile(excel_file) as xls:
+    if comparison_sheet_name in xls.sheet_names:
+        # Read the "comparisons-{date}" sheet into a DataFrame
+        comparison_data = pd.read_excel(xls, sheet_name=comparison_sheet_name)
+        # Save the comparison data to a CSV file
+        comparison_csv_name = today_date.replace('/', '-') + '-comparisons.csv'
+        comparison_data.to_csv(comparison_csv_name, index=False)
+        print(f"Comparison data saved to {comparison_csv_name}")
+    else:
+        print(f"Sheet '{comparison_sheet_name}' not found in the Excel file.")
+
+##############################################################
+# Get today's date
+today = datetime.today()
+
+# Manually format day and month without leading zeros
+today_date = f"{today.day}/{today.month}/{today.strftime('%y')}"
+
+comparisons = today_date.replace('/', '-') + '-comparisons.csv'
+
+
 st.set_page_config(layout='wide', initial_sidebar_state='collapsed')
- 
-df = pd.read_csv("comparisons.csv") 
+
+# Inject custom CSS to target the entire page background
+st.markdown(
+    """
+    <style>
+    /* Set the entire page background to black */
+    html, body, [class^="st-emotion-cache"] {
+        background-color: #191B21;
+        color: white; /* Optional: Make the text color white for contrast */
+    }
+
+    
+    
+    /* Ensure all content aligns properly in the dark background */
+    .stApp {
+        background-color: #191B21;
+        color: white;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+df = pd.read_csv(comparisons) 
 df = df.fillna(0)
 
 today_paid_installs_for_zin, todays_free_installs_zin, total_installs_zin, today__paid_uninstalls_zin, today_free_uninstalls_zin, total_uninstalls_zin= zeniva_overview(df)
-today_forge_installs_for_ody, todays_free_installs_for_ody, total_installs_for_ody, today__forge_uninstalls_for_ody, today_free_uninstalls_for_ody, total_uninstalls_for_ody = odyessey_overview(df) 
+today_forge_installs_for_ody, todays_free_installs_for_ody, total_installs_for_ody, today__forge_uninstalls_for_ody, today_free_uninstalls_for_ody, total_uninstalls_for_ody = odyssey_overview(df) 
 
 html_code = f"""
     <style>
@@ -235,7 +327,7 @@ margin-bottom: 22px;
     max-width: 1800px; /* Maximum width to ensure it doesn't exceed 1800px */
     height: 10px;
     background-color: #323743; /* Background color of the entire container */
-    border-radius: 5px; /* No rounding for the container edges */
+    border-radius: 0px; /* No rounding for the container edges */
     overflow: hidden; /* Ensures that the progress bar stays within the container */
     margin: 0 auto; /* Center the progress container */
 }}
@@ -266,13 +358,13 @@ margin-bottom: 22px;
         <div style="display: flex; justify-content: space-between; align-items: center;">
                        <img style="padding-left:100px;" src="https://i.ibb.co/0jT4xCS/Logo-2-1.png" alt="logo" style="width:100px;">
             <div>
-                 <a href="#overview" style="margin-right: 20px; padding-right:50px; color: #F0F0F0; font-family: 'Roboto', sans-serif; font-size: 25px; font-style: normal; font-weight: 300; line-height: normal; text-decoration: underline; text-decoration-color: none;">Overview</a>
+                <a href="#overview" style="margin-right: 20px; padding-right:100px; color: #F0F0F0; font-family: 'Roboto', sans-serif; font-size: 25px; font-style: normal; font-weight: 300; line-height: normal; text-decoration: underline;">Overview</a>
  
-                <a href="#zeniva" style="margin-right: 20px; padding-right:50px; color: #F0F0F0; font-family: 'Roboto', sans-serif; font-size: 25px; font-style: normal; font-weight: 300; line-height: normal; text-decoration: none;">Zeniva</a>
+                <a href="#zeniva" style="margin-right: 20px; padding-right:100px; color: #F0F0F0; font-family: 'Roboto', sans-serif; font-size: 25px; font-style: normal; font-weight: 300; line-height: normal; text-decoration: none; text-decoration-color: none;">Zeniva</a>
  
-                <a href="#odyessey" style="margin-right: 20px; padding-right:50px; color: #F0F0F0; font-family: 'Roboto', sans-serif; font-size: 25px; font-style: normal; font-weight: 300; line-height: normal; text-decoration: none;">Odyessey</a>
+                <a href="#odyessey" style="margin-right: 20px; padding-right:100px; color: #F0F0F0; font-family: 'Roboto', sans-serif; font-size: 25px; font-style: normal; font-weight: 300; line-height: normal; text-decoration: none;">Odyessey</a>
  
-                <a href="#exarta" style="padding-right:50px; color: #F0F0F0; font-family: 'Roboto', sans-serif; font-size: 25px; font-style: normal; font-weight: 300; line-height: normal; text-decoration: none;">Exarta</a>
+                <a href="#exarta" style="padding-right:100px; color: #F0F0F0; font-family: 'Roboto', sans-serif; font-size: 25px; font-style: normal; font-weight: 300; line-height: normal; text-decoration: none;">Exarta</a>
  
             </div>
         </div>

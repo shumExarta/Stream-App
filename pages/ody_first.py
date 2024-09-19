@@ -1,12 +1,34 @@
 import streamlit as st
 import streamlit.components.v1 as components
 import time
-from functions import odyessey_values_for_insights
+from functions import odyssey_values_for_insights
+
 st.set_page_config(layout='wide', initial_sidebar_state='collapsed')
 
-odyessey_youtube, odyessey_x, odyessey_tiktok, odyessey_instagram, odyessey_facebook = odyessey_values_for_insights()
+# Inject custom CSS to target the entire page background
+st.markdown(
+    """
+    <style>
+    /* Set the entire page background to black */
+    html, body, [class^="st-emotion-cache"] {
+        background-color: #191B21;
+        color: white; /* Optional: Make the text color white for contrast */
+    }
 
-odyessey_first_html_code = f"""
+    
+    
+    /* Ensure all content aligns properly in the dark background */
+    .stApp {
+        background-color: #191B21;
+        color: white;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+odyssey_youtube, odyssey_x, odyssey_tiktok, odyssey_instagram, odyssey_facebook = odyssey_values_for_insights()
+
+odyssey_first_html_code = f"""
     <style>
     .header {{
         background-color: #20232A;
@@ -219,13 +241,13 @@ odyessey_first_html_code = f"""
         <div style="display: flex; justify-content: space-between; align-items: center;">
            <img style="padding-left:100px;" src="https://i.ibb.co/0jT4xCS/Logo-2-1.png" alt="logo" style="width:100px;">
             <div>
-                <a href="#overview" style="margin-right: 20px; padding-right:50px; color: #F0F0F0; font-family: 'Roboto', sans-serif; font-size: 25px; font-style: normal; font-weight: 300; line-height: normal; text-decoration: none;">Overview</a>
+                <a href="#overview" style="margin-right: 20px; padding-right:100px; color: #F0F0F0; font-family: 'Roboto', sans-serif; font-size: 25px; font-style: normal; font-weight: 300; line-height: normal; text-decoration: none;">Overview</a>
  
-                <a href="#zeniva" style="margin-right: 20px; padding-right:50px; color: #F0F0F0; font-family: 'Roboto', sans-serif; font-size: 25px; font-style: normal; font-weight: 300; line-height: normal; text-decoration: none;">Zeniva</a>
+                <a href="#zeniva" style="margin-right: 20px; padding-right:100px; color: #F0F0F0; font-family: 'Roboto', sans-serif; font-size: 25px; font-style: normal; font-weight: 300; line-height: normal; text-decoration: none; text-decoration-color: none;">Zeniva</a>
  
-                <a href="#odyessey" style="margin-right: 20px; padding-right:50px; color: #F0F0F0; font-family: 'Roboto', sans-serif; font-size: 25px; font-style: normal; font-weight: 300; line-height: normal; text-decoration: underline; text-decoration-color: none;">Odyessey</a>
+                <a href="#odyssey" style="margin-right: 20px; padding-right:100px; color: #F0F0F0; font-family: 'Roboto', sans-serif; font-size: 25px; font-style: normal; font-weight: 300; line-height: normal; text-decoration: underline;">Odyssey</a>
  
-                <a href="#exarta" style="padding-right:50px; color: #F0F0F0; font-family: 'Roboto', sans-serif; font-size: 25px; font-style: normal; font-weight: 300; line-height: normal; text-decoration: none;">Exarta</a>
+                <a href="#exarta" style="padding-right:100px; color: #F0F0F0; font-family: 'Roboto', sans-serif; font-size: 25px; font-style: normal; font-weight: 300; line-height: normal; text-decoration: none;">Exarta</a>
  
             </div>
         </div>
@@ -242,19 +264,19 @@ odyessey_first_html_code = f"""
        <div class="metric-container">
     <div class="metric-row">
         <p class="metric-left">Today's Follower Gain</p>
-        <p class="metric-right">{int(odyessey_youtube['today_followers'].iloc[0])}</p>
+        <p class="metric-right">{int(odyssey_youtube['today_followers'].iloc[0])}</p>
     </div>
     <div class="metric-line"></div>
  
     <div class="metric-row">
         <p class="metric-left">Yesterday's Follower Gain</p>
-        <p class="metric-right">{int(odyessey_youtube['yesterday_followers'].iloc[0])}</p>
+        <p class="metric-right">{int(odyssey_youtube['yesterday_followers'].iloc[0])}</p>
     </div>
     <div class="metric-line"></div>
  
     <div class="metric-row">
         <p class="metric-left">Total Followers</p>
-        <p class="metric-right">{int(odyessey_youtube['total_followers'].iloc[0])}</p>
+        <p class="metric-right">{int(odyssey_youtube['total_followers'].iloc[0])}</p>
     </div>
 </div>
     </div>
@@ -265,19 +287,19 @@ odyessey_first_html_code = f"""
 <div class="metric-container">
     <div class="metric-row">
         <p class="metric-left">Today's Follower Gain</p>
-        <p class="metric-right">{int(odyessey_x['today_followers'].iloc[0])}</p>
+        <p class="metric-right">{int(odyssey_x['today_followers'].iloc[0])}</p>
     </div>
     <div class="metric-line"></div>
  
     <div class="metric-row">
         <p class="metric-left">Yesterday's Follower Gain</p>
-        <p class="metric-right">{int(odyessey_x['yesterday_followers'].iloc[0])}</p>
+        <p class="metric-right">{int(odyssey_x['yesterday_followers'].iloc[0])}</p>
     </div>
     <div class="metric-line"></div>
  
     <div class="metric-row">
         <p class="metric-left">Total Followers</p>
-        <p class="metric-right">{int(odyessey_x['total_followers'].iloc[0])}</p>
+        <p class="metric-right">{int(odyssey_x['total_followers'].iloc[0])}</p>
     </div>
 </div>
     </div>
@@ -288,19 +310,19 @@ odyessey_first_html_code = f"""
         <div class="metric-container">
     <div class="metric-row">
         <p class="metric-left">Today's Follower Gain</p>
-        <p class="metric-right">{int(odyessey_tiktok['today_followers'].iloc[0])}</p>
+        <p class="metric-right">{int(odyssey_tiktok['today_followers'].iloc[0])}</p>
     </div>
     <div class="metric-line"></div>
  
     <div class="metric-row">
         <p class="metric-left">Yesterday's Follower Gain</p>
-        <p class="metric-right">{int(odyessey_tiktok['yesterday_followers'].iloc[0])}</p>
+        <p class="metric-right">{int(odyssey_tiktok['yesterday_followers'].iloc[0])}</p>
     </div>
     <div class="metric-line"></div>
  
     <div class="metric-row">
         <p class="metric-left">Total Followers</p>
-        <p class="metric-right">{int(odyessey_tiktok['total_followers'].iloc[0])}</p>
+        <p class="metric-right">{int(odyssey_tiktok['total_followers'].iloc[0])}</p>
     </div>
 </div>
     </div>
@@ -311,19 +333,19 @@ odyessey_first_html_code = f"""
         <div class="metric-container">
     <div class="metric-row">
         <p class="metric-left">Today's Follower Gain</p>
-        <p class="metric-right">{int(odyessey_instagram['today_followers'].iloc[0])}</p>
+        <p class="metric-right">{int(odyssey_instagram['today_followers'].iloc[0])}</p>
     </div>
     <div class="metric-line"></div>
  
     <div class="metric-row">
         <p class="metric-left">Yesterday's Follower Gain</p>
-        <p class="metric-right">{int(odyessey_instagram['yesterday_followers'].iloc[0])}</p>
+        <p class="metric-right">{int(odyssey_instagram['yesterday_followers'].iloc[0])}</p>
     </div>
     <div class="metric-line"></div>
  
     <div class="metric-row">
         <p class="metric-left">Total Followers</p>
-        <p class="metric-right">{int(odyessey_instagram['total_followers'].iloc[0])}</p>
+        <p class="metric-right">{int(odyssey_instagram['total_followers'].iloc[0])}</p>
     </div>
 </div>
     </div>
@@ -334,19 +356,19 @@ odyessey_first_html_code = f"""
         <div class="metric-container">
     <div class="metric-row">
         <p class="metric-left">Today's Follower Gain</p>
-        <p class="metric-right">{int(odyessey_facebook['today_followers'].iloc[0])}</p>
+        <p class="metric-right">{int(odyssey_facebook['today_followers'].iloc[0])}</p>
     </div>
     <div class="metric-line"></div>
  
     <div class="metric-row">
         <p class="metric-left">Yesterday's Follower Gain</p>
-        <p class="metric-right">{int(odyessey_facebook['yesterday_followers'].iloc[0])}</p>
+        <p class="metric-right">{int(odyssey_facebook['yesterday_followers'].iloc[0])}</p>
     </div>
     <div class="metric-line"></div>
  
     <div class="metric-row">
         <p class="metric-left">Total Followers</p>
-        <p class="metric-right">{int(odyessey_facebook['total_followers'].iloc[0])}</p>
+        <p class="metric-right">{int(odyssey_facebook['total_followers'].iloc[0])}</p>
     </div>
 </div>
     </div>
@@ -356,6 +378,6 @@ odyessey_first_html_code = f"""
 """
  
  
-components.html(odyessey_first_html_code, height=1000)
+components.html(odyssey_first_html_code, height=1000)
 time.sleep(60)
 st.switch_page("pages/ody_second.py")
