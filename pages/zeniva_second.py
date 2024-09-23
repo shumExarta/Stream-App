@@ -9,13 +9,13 @@ st.set_page_config(layout='wide', initial_sidebar_state='collapsed')
 st.markdown(
     """
     <style>
-    /* Set the entire page background to black */
-    html, body, [class^="st-emotion-cache"] {
-        background-color: #191B21;
-        color: white; /* Optional: Make the text color white for contrast */
-    }
+   
+   header {visibility: hidden;}       
+   footer {visibility: hidden;}         
+   .stApp > header {display: none;}
+   .st-emotion-cache-19u4bdk.eczjsme5 > {visibility: hidden;}   
 
-    
+ 
     
     /* Ensure all content aligns properly in the dark background */
     .stApp {
@@ -26,6 +26,7 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+
 
  
 zeniva_youtube_plot = plot_histograms_zeniva("zeniva", "youtube")
@@ -245,7 +246,7 @@ html_code = f"""
  
                 <a href="#zeniva" style="margin-right: 20px; padding-right:100px; color: #F0F0F0; font-family: 'Roboto', sans-serif; font-size: 25px; font-style: normal; font-weight: 300; line-height: normal; text-decoration: underline; text-decoration-color: none;">Zeniva</a>
  
-                <a href="#odyessey" style="margin-right: 20px; padding-right:100px; color: #F0F0F0; font-family: 'Roboto', sans-serif; font-size: 25px; font-style: normal; font-weight: 300; line-height: normal; text-decoration: none;">Odyessey</a>
+                <a href="#odyssey" style="margin-right: 20px; padding-right:100px; color: #F0F0F0; font-family: 'Roboto', sans-serif; font-size: 25px; font-style: normal; font-weight: 300; line-height: normal; text-decoration: none;">Odyssey</a>
  
                 <a href="#exarta" style="padding-right:100px; color: #F0F0F0; font-family: 'Roboto', sans-serif; font-size: 25px; font-style: normal; font-weight: 300; line-height: normal; text-decoration: none;">Exarta</a>
  

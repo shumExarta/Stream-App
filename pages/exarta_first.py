@@ -5,15 +5,13 @@ from functions import exarta_values_for_insights
 
 st.set_page_config(layout='wide', initial_sidebar_state='collapsed')
 
-# Inject custom CSS to target the entire page background
 st.markdown(
     """
     <style>
-    /* Set the entire page background to black */
-    html, body, [class^="st-emotion-cache"] {
-        background-color: #191B21;
-        color: white; /* Optional: Make the text color white for contrast */
-    }
+   
+   header {visibility: hidden;}       
+   footer {visibility: hidden;}         
+   .stApp > header {display: none;}   
 
     
     
@@ -26,6 +24,9 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+
+
+
 exarta_youtube, exarta_x, exarta_facebook, exarta_linkedin, exarta_instagram = exarta_values_for_insights()
 exarta_first_html_code = f"""
     <style>
@@ -231,7 +232,7 @@ exarta_first_html_code = f"""
  
                 <a href="#zeniva" style="margin-right: 20px; padding-right:100px; color: #F0F0F0; font-family: 'Roboto', sans-serif; font-size: 25px; font-style: normal; font-weight: 300; line-height: normal; text-decoration: none; text-decoration-color: none;">Zeniva</a>
  
-                <a href="#odyessey" style="margin-right: 20px; padding-right:100px; color: #F0F0F0; font-family: 'Roboto', sans-serif; font-size: 25px; font-style: normal; font-weight: 300; line-height: normal; text-decoration: none;">Odyessey</a>
+                <a href="#odyessey" style="margin-right: 20px; padding-right:100px; color: #F0F0F0; font-family: 'Roboto', sans-serif; font-size: 25px; font-style: normal; font-weight: 300; line-height: normal; text-decoration: none;">Odyssey</a>
  
                 <a href="#exarta" style="padding-right:100px; color: #F0F0F0; font-family: 'Roboto', sans-serif; font-size: 25px; font-style: normal; font-weight: 300; line-height: normal; text-decoration: underline;">Exarta</a>
 
@@ -249,13 +250,13 @@ exarta_first_html_code = f"""
         </div>
     <div class="metric-container">
     <div class="metric-row">
-        <p class="metric-left">Today's Follower Gain</p>
+        <p class="metric-left">Today's Follower </p>
         <p class="metric-right">{int(exarta_youtube['today_followers'].iloc[0])}</p>
     </div>
     <div class="metric-line"></div>
 
     <div class="metric-row">
-        <p class="metric-left">Yesterday's Follower Gain</p>
+        <p class="metric-left">Yesterday's Follower </p>
         <p class="metric-right">{int(exarta_youtube['yesterday_followers'].iloc[0])}</p>
     </div>
     <div class="metric-line"></div>
@@ -272,13 +273,13 @@ exarta_first_html_code = f"""
         </div>
 <div class="metric-container">
     <div class="metric-row">
-        <p class="metric-left">Today's Follower Gain</p>
+        <p class="metric-left">Today's Follower </p>
         <p class="metric-right">{int(exarta_x['today_followers'].iloc[0])}</p>
     </div>
     <div class="metric-line"></div>
 
     <div class="metric-row">
-        <p class="metric-left">Yesterday's Follower Gain</p>
+        <p class="metric-left">Yesterday's Follower </p>
         <p class="metric-right">{int(exarta_x['yesterday_followers'].iloc[0])}</p>
     </div>
     <div class="metric-line"></div>
@@ -295,13 +296,13 @@ exarta_first_html_code = f"""
         </div>
         <div class="metric-container">
     <div class="metric-row">
-        <p class="metric-left">Today's Follower Gain</p>
+        <p class="metric-left">Today's Follower </p>
         <p class="metric-right">{int(exarta_facebook['today_followers'].iloc[0])}</p>
     </div>
     <div class="metric-line"></div>
 
     <div class="metric-row">
-        <p class="metric-left">Yesterday's Follower Gain</p>
+        <p class="metric-left">Yesterday's Follower </p>
         <p class="metric-right">{int(exarta_facebook['yesterday_followers'].iloc[0])}</p>
     </div>
     <div class="metric-line"></div>
@@ -318,13 +319,13 @@ exarta_first_html_code = f"""
         </div>
         <div class="metric-container">
     <div class="metric-row">
-        <p class="metric-left">Today's Follower Gain</p>
+        <p class="metric-left">Today's Follower </p>
         <p class="metric-right">{int(exarta_linkedin['today_followers'].iloc[0])}</p>
     </div>
     <div class="metric-line"></div>
 
     <div class="metric-row">
-        <p class="metric-left">Yesterday's Follower Gain</p>
+        <p class="metric-left">Yesterday's Follower </p>
         <p class="metric-right">{int(exarta_linkedin['yesterday_followers'].iloc[0])}</p>
     </div>
     <div class="metric-line"></div>
@@ -341,13 +342,13 @@ exarta_first_html_code = f"""
         </div>
         <div class="metric-container">
     <div class="metric-row">
-        <p class="metric-left">Today's Follower Gain</p>
+        <p class="metric-left">Today's Follower </p>
         <p class="metric-right">{int(exarta_instagram['today_followers'].iloc[0])}</p>
     </div>
     <div class="metric-line"></div>
 
     <div class="metric-row">
-        <p class="metric-left">Yesterday's Follower Gain</p>
+        <p class="metric-left">Yesterday's Follower </p>
         <p class="metric-right">{int(exarta_instagram['yesterday_followers'].iloc[0])}</p>
     </div>
     <div class="metric-line"></div>

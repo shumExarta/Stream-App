@@ -10,11 +10,10 @@ st.set_page_config(layout='wide', initial_sidebar_state='collapsed')
 st.markdown(
     """
     <style>
-    /* Set the entire page background to black */
-    html, body, [class^="st-emotion-cache"] {
-        background-color: #191B21;
-        color: white; /* Optional: Make the text color white for contrast */
-    }
+   
+   header {visibility: hidden;}       
+   footer {visibility: hidden;}         
+   .stApp > header {display: none;}   
 
     
     
@@ -235,17 +234,18 @@ html_code = f"""
         <div style="display: flex; justify-content: space-between; align-items: center;">
            <img style="padding-left:100px;" src="https://i.ibb.co/0jT4xCS/Logo-2-1.png" alt="logo" style="width:100px;">
             <div>
-                                <a href="#overview" style="margin-right: 20px; padding-right:100px; color: #F0F0F0; font-family: 'Roboto', sans-serif; font-size: 25px; font-style: normal; font-weight: 300; line-height: normal; text-decoration: none;">Overview</a>
+            <a href="#overview" style="margin-right: 20px; padding-right:100px; color: #F0F0F0; font-family: 'Roboto', sans-serif; font-size: 25px; font-style: normal; font-weight: 300; line-height: normal; text-decoration: none;">Overview</a>
  
                 <a href="#zeniva" style="margin-right: 20px; padding-right:100px; color: #F0F0F0; font-family: 'Roboto', sans-serif; font-size: 25px; font-style: normal; font-weight: 300; line-height: normal; text-decoration: underline; text-decoration-color: none;">Zeniva</a>
  
-                <a href="#odyessey" style="margin-right: 20px; padding-right:100px; color: #F0F0F0; font-family: 'Roboto', sans-serif; font-size: 25px; font-style: normal; font-weight: 300; line-height: normal; text-decoration: none;">Odyessey</a>
+                <a href="#odyssey" style="margin-right: 20px; padding-right:100px; color: #F0F0F0; font-family: 'Roboto', sans-serif; font-size: 25px; font-style: normal; font-weight: 300; line-height: normal; text-decoration: none;">Odyssey</a>
  
                 <a href="#exarta" style="padding-right:100px; color: #F0F0F0; font-family: 'Roboto', sans-serif; font-size: 25px; font-style: normal; font-weight: 300; line-height: normal; text-decoration: none;">Exarta</a>
- 
+     
             </div>
         </div>
     </div>
+    
      <div class="progress-container">
     <div class="progress-bar"></div>
 </div>
@@ -257,13 +257,13 @@ html_code = f"""
         </div>
        <div class="metric-container">
     <div class="metric-row">
-        <p class="metric-left">Today's Follower Gain</p>
+        <p class="metric-left">Today's Follower </p>
         <p class="metric-right">{int(zeniva_youtube['today_followers'].iloc[0])}</p>
     </div>
     <div class="metric-line"></div>
  
     <div class="metric-row">
-        <p class="metric-left">Yesterday's Follower Gain</p>
+        <p class="metric-left">Yesterday's Follower </p>
         <p class="metric-right">{int(zeniva_youtube['yesterday_followers'].iloc[0])}</p>
     </div>
     <div class="metric-line"></div>
@@ -280,13 +280,13 @@ html_code = f"""
         </div>
 <div class="metric-container">
     <div class="metric-row">
-        <p class="metric-left">Today's Follower Gain</p>
+        <p class="metric-left">Today's Follower </p>
         <p class="metric-right">{int(zeniva_x['today_followers'].iloc[0])}</p>
     </div>
     <div class="metric-line"></div>
  
     <div class="metric-row">
-        <p class="metric-left">Yesterday's Follower Gain</p>
+        <p class="metric-left">Yesterday's Follower </p>
         <p class="metric-right">{int(zeniva_x['yesterday_followers'].iloc[0])}</p>
     </div>
     <div class="metric-line"></div>
@@ -303,13 +303,13 @@ html_code = f"""
         </div>
         <div class="metric-container">
     <div class="metric-row">
-        <p class="metric-left">Today's Follower Gain</p>
+        <p class="metric-left">Today's Follower </p>
         <p class="metric-right">{int(zeniva_tiktok['today_followers'].iloc[0])}</p>
     </div>
     <div class="metric-line"></div>
  
     <div class="metric-row">
-        <p class="metric-left">Yesterday's Follower Gain</p>
+        <p class="metric-left">Yesterday's Follower </p>
         <p class="metric-right">{int(zeniva_tiktok['yesterday_followers'].iloc[0])}</p>
     </div>
     <div class="metric-line"></div>
@@ -326,13 +326,13 @@ html_code = f"""
         </div>
         <div class="metric-container">
     <div class="metric-row">
-        <p class="metric-left">Today's Follower Gain</p>
+        <p class="metric-left">Today's Follower </p>
         <p class="metric-right">{int(zeniva_linkedin['today_followers'].iloc[0])}</p>
     </div>
     <div class="metric-line"></div>
  
     <div class="metric-row">
-        <p class="metric-left">Yesterday's Follower Gain</p>
+        <p class="metric-left">Yesterday's Follower </p>
         <p class="metric-right">{int(zeniva_linkedin['yesterday_followers'].iloc[0])}</p>
     </div>
     <div class="metric-line"></div>
@@ -349,13 +349,13 @@ html_code = f"""
         </div>
         <div class="metric-container">
     <div class="metric-row">
-        <p class="metric-left">Today's Follower Gain</p>
+        <p class="metric-left">Today's Follower </p>
         <p class="metric-right">{int(zeniva_instagram['today_followers'].iloc[0])}</p>
     </div>
     <div class="metric-line"></div>
  
     <div class="metric-row">
-        <p class="metric-left">Yesterday's Follower Gain</p>
+        <p class="metric-left">Yesterday's Follower </p>
         <p class="metric-right">{int(zeniva_instagram['yesterday_followers'].iloc[0])}</p>
     </div>
     <div class="metric-line"></div>
@@ -372,13 +372,13 @@ html_code = f"""
         </div>
         <div class="metric-container">
     <div class="metric-row">
-        <p class="metric-left">Today's Follower Gain</p>
+        <p class="metric-left">Today's Follower </p>
         <p class="metric-right">{int(zeniva_facebook['today_followers'].iloc[0])}</p>
     </div>
     <div class="metric-line"></div>
  
     <div class="metric-row">
-        <p class="metric-left">Yesterday's Follower Gain</p>
+        <p class="metric-left">Yesterday's Follower </p>
         <p class="metric-right">{int(zeniva_facebook['yesterday_followers'].iloc[0])}</p>
     </div>
     <div class="metric-line"></div>

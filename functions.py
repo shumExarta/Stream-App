@@ -1,27 +1,23 @@
 import pandas as pd
 import streamlit as st
 import plotly.express as px
-import plotly.graph_objects as go
-from datetime import datetime
-from datetime import datetime, timedelta
+from datetime import timedelta
 
-# Get today's date
-today = datetime.today()
+file_path = '22-9-24.xlsx'  
 
-# Manually format day and month without leading zeros
-today_date = f"{today.day}/{today.month}/{today.strftime('%y')}"
-
-# Append .xlsx to the formatted date
-filename = today_date.replace('/', '-') + '.xlsx'
-
-combined_Data = today_date.replace('/', '-') + '-Graphs_Data.csv'
-
-file_path = filename
+# Load data from specific sheets in the Excel file
 df_sheet1 = pd.read_excel(file_path, sheet_name='Sheet0')
 df_sheet2 = pd.read_excel(file_path, sheet_name='Sheet1')
 df_sheet3 = pd.read_excel(file_path, sheet_name='Sheet2')
+
+# Combine the data from all sheets into one DataFrame
 live_data = pd.concat([df_sheet1, df_sheet2, df_sheet3], ignore_index=True)
 
+# Define a generic name for the combined CSV file (you can modify the name if needed)
+combined_Data = 'Graphs_Data.csv'
+
+# Save the combined data to the CSV file
+live_data.to_csv(combined_Data, index=False)
 
 
 def histo_youtube(dataframe):
@@ -42,7 +38,6 @@ def histo_youtube(dataframe):
     )
 
     return youtube_melted, meta_melted
-
 
 def filtering_data(dataframe):
     # FOR EXARTA
@@ -79,8 +74,7 @@ def filtering_data(dataframe):
         value_name="value",
     )
 
-    return youtube_melted, meta_melted, ppc_melted
-
+    return youtube_melted, meta_melted
 
 def zeniva_values_for_insights():
     data = live_data.fillna(0)
@@ -133,9 +127,6 @@ def exarta_values_for_insights():
         exarta_linkedin[["total_followers", "today_followers", "yesterday_followers"]],
         exarta_instagram[["total_followers", "today_followers", "yesterday_followers"]],
     )
-
-
-
 
 
 
@@ -226,34 +217,37 @@ def plot_histograms_zeniva(product_name, platform_name):
         color_discrete_map=color_discrete_map,
     )
 
-    fig.for_each_trace(lambda trace: trace.update(name=label_map.get(trace.name, trace.name)))
-
+    fig.for_each_trace(lambda trace: trace.update(name=label_map.get(trace.name, trace.name), showlegend=False if trace.name == 'dummy_metric' else True))
+    
+    
     # Extract unique dates for the x-axis and format them
     unique_dates = df_grouped['date'].dt.to_period('D').astype('str').unique()
     formatted_dates = [pd.to_datetime(date).strftime('%d %B') for date in unique_dates]
 
-    # Update the layout to format x-axis labels
+
     fig.update_layout(
-        xaxis=dict(
-            tickvals=pd.to_datetime(unique_dates).to_pydatetime(),  # Set tick values to unique dates
-            ticktext=formatted_dates,  # Format tick text
-            ticklabelposition="outside",  # Position the labels outside the plot area
-            tickson="labels",  # Ensure ticks are aligned with labels
-            title_standoff=10,  # Increase space between x-axis title and labels
-            ticks="outside",  # Ensure ticks are outside the plot area
-            tickfont=dict(size=14),
-        ),
-        plot_bgcolor='rgba(0,0,0,0)',  # Transparent background for the plot area
-        paper_bgcolor='rgba(0,0,0,0)',  # Transparent background for the whole figure
-        font_color='white',
-        bargap=0.4,  # Adjust the gap between bars
-        bargroupgap=0.3,  # Adjust the gap between groups of bars
-        yaxis=dict(
-            showgrid=False  # Disable horizontal grid lines
-        ),
-        xaxis_title=None,
-        yaxis_title=None,
-    )
+    xaxis=dict(
+        tickvals=pd.to_datetime(unique_dates).to_pydatetime(),  # Set tick values to unique dates
+        ticktext=formatted_dates,  # Format tick text
+        ticklabelposition="outside",  # Position the labels outside the plot area
+        tickson="labels",  # Ensure ticks are aligned with labels
+        title_standoff=10,  # Increase space between x-axis title and labels
+        ticks="outside",  # Ensure ticks are outside the plot area
+        tickfont=dict(size=14),
+    ),
+    plot_bgcolor='rgba(0,0,0,0)',  # Transparent background for the plot area
+    paper_bgcolor='rgba(0,0,0,0)',  # Transparent background for the whole figure
+    font_color='white',
+    bargap=0.4,  # Adjust the gap between bars
+    bargroupgap=0.3,  # Adjust the gap between groups of bars
+    yaxis=dict(
+        showgrid=True,  # Enable horizontal grid lines
+        gridcolor='rgba(255,255,255,0.1)',  # Set grid line color to a very translucent white
+        gridwidth=1,  # Set the width of grid lines
+    ),
+    xaxis_title=None,
+    yaxis_title=None,
+)
 
     # Update the layout to add border-radius effect
     fig.update_traces(marker=dict(
@@ -288,48 +282,35 @@ def plot_histograms_zeniva(product_name, platform_name):
 def zeniva_overview(df):
     filter_product_zin = df[df['Product'] == 'Zeniva']
     today_paid_installs = filter_product_zin['today_paid_installs'].sum()
-    
-    
-    filter_product_zin = df[df['Product'] == 'Zeniva']
+
     todays_free_installs = filter_product_zin['todays_free_installs'].sum()
     
-    filter_product_zin = df[df['Product'] == 'Zeniva']
-    total_installs = filter_product_zin['total_installs'].sum()
+    lifetime_installs = filter_product_zin['lifetime_installs'].sum()
     
-    filter_product_zin = df[df['Product'] == 'Zeniva']
     today__paid_uninstalls = filter_product_zin['today_paid_uninstalls'].sum()
     
-    filter_product_zin = df[df['Product'] == 'Zeniva']
     today_free_uninstalls = filter_product_zin['today_free_uninstalls'].sum()
 
-    filter_product_zin = df[df['Product'] == 'Zeniva']
-    total_uninstalls = filter_product_zin['total_uninstalls'].sum()
+    lifetime_uninstalls = filter_product_zin['lifetime_uninstalls'].sum()
 
-    return today_paid_installs, todays_free_installs, total_installs, today__paid_uninstalls, today_free_uninstalls, total_uninstalls
+    return today_paid_installs, todays_free_installs, lifetime_installs, today__paid_uninstalls, today_free_uninstalls, lifetime_uninstalls 
 
 
 # Odyessey comparison overview part
 def odyssey_overview(df):
-    filter_product_zin = df[df['Product'] == 'Odyssey']
-    today_forge_installs = filter_product_zin['todays_forge_installs'].sum()
+    filter_product_ody = df[df['Product'] == 'Odyssey']
+    today_forge_installs = filter_product_ody['todays_forge_installs'].sum()
+    todays_free_installs = filter_product_ody['todays_free_installs'].sum()
     
-    
-    filter_product_zin = df[df['Product'] == 'Odyssey']
-    todays_free_installs = filter_product_zin['todays_free_installs'].sum()
-    
-    filter_product_zin = df[df['Product'] == 'Odyssey']
-    total_installs = filter_product_zin['total_installs'].sum()
-    
-    filter_product_zin = df[df['Product'] == 'Odyssey']
-    today__forge_uninstalls = filter_product_zin['todays_forge_uninstalls'].sum()
-    
-    filter_product_zin = df[df['Product'] == 'Odyssey']
-    today_free_uninstalls = filter_product_zin['today_free_uninstalls'].sum()
+    lifetime_installs = filter_product_ody['lifetime_installs'].sum()
 
-    filter_product_zin = df[df['Product'] == 'Odyssey']
-    total_uninstalls = filter_product_zin['total_uninstalls'].sum()
+    today__forge_uninstalls = filter_product_ody['todays_forge_uninstalls'].sum()
+    
+    today_free_uninstalls = filter_product_ody['today_free_uninstalls'].sum()
 
-    return today_forge_installs, todays_free_installs, total_installs, today__forge_uninstalls, today_free_uninstalls, total_uninstalls
+    lifetime_uninstalls = filter_product_ody['lifetime_uninstalls'].sum()
+
+    return today_forge_installs, todays_free_installs, lifetime_installs, today__forge_uninstalls, today_free_uninstalls, lifetime_uninstalls
 
 def odyssey_values_for_insights():
     data = live_data.fillna(0)

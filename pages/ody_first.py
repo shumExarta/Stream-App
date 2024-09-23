@@ -5,15 +5,13 @@ from functions import odyssey_values_for_insights
 
 st.set_page_config(layout='wide', initial_sidebar_state='collapsed')
 
-# Inject custom CSS to target the entire page background
 st.markdown(
     """
     <style>
-    /* Set the entire page background to black */
-    html, body, [class^="st-emotion-cache"] {
-        background-color: #191B21;
-        color: white; /* Optional: Make the text color white for contrast */
-    }
+   
+   header {visibility: hidden;}       
+   footer {visibility: hidden;}         
+   .stApp > header {display: none;}   
 
     
     
@@ -26,6 +24,9 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+
+
+
 odyssey_youtube, odyssey_x, odyssey_tiktok, odyssey_instagram, odyssey_facebook = odyssey_values_for_insights()
 
 odyssey_first_html_code = f"""
@@ -263,13 +264,13 @@ odyssey_first_html_code = f"""
         </div>
        <div class="metric-container">
     <div class="metric-row">
-        <p class="metric-left">Today's Follower Gain</p>
+        <p class="metric-left">Today's Follower </p>
         <p class="metric-right">{int(odyssey_youtube['today_followers'].iloc[0])}</p>
     </div>
     <div class="metric-line"></div>
  
     <div class="metric-row">
-        <p class="metric-left">Yesterday's Follower Gain</p>
+        <p class="metric-left">Yesterday's Follower </p>
         <p class="metric-right">{int(odyssey_youtube['yesterday_followers'].iloc[0])}</p>
     </div>
     <div class="metric-line"></div>
@@ -286,13 +287,13 @@ odyssey_first_html_code = f"""
         </div>
 <div class="metric-container">
     <div class="metric-row">
-        <p class="metric-left">Today's Follower Gain</p>
+        <p class="metric-left">Today's Follower </p>
         <p class="metric-right">{int(odyssey_x['today_followers'].iloc[0])}</p>
     </div>
     <div class="metric-line"></div>
  
     <div class="metric-row">
-        <p class="metric-left">Yesterday's Follower Gain</p>
+        <p class="metric-left">Yesterday's Follower </p>
         <p class="metric-right">{int(odyssey_x['yesterday_followers'].iloc[0])}</p>
     </div>
     <div class="metric-line"></div>
@@ -309,13 +310,13 @@ odyssey_first_html_code = f"""
         </div>
         <div class="metric-container">
     <div class="metric-row">
-        <p class="metric-left">Today's Follower Gain</p>
+        <p class="metric-left">Today's Follower </p>
         <p class="metric-right">{int(odyssey_tiktok['today_followers'].iloc[0])}</p>
     </div>
     <div class="metric-line"></div>
  
     <div class="metric-row">
-        <p class="metric-left">Yesterday's Follower Gain</p>
+        <p class="metric-left">Yesterday's Follower </p>
         <p class="metric-right">{int(odyssey_tiktok['yesterday_followers'].iloc[0])}</p>
     </div>
     <div class="metric-line"></div>
@@ -332,13 +333,13 @@ odyssey_first_html_code = f"""
         </div>
         <div class="metric-container">
     <div class="metric-row">
-        <p class="metric-left">Today's Follower Gain</p>
+        <p class="metric-left">Today's Follower </p>
         <p class="metric-right">{int(odyssey_instagram['today_followers'].iloc[0])}</p>
     </div>
     <div class="metric-line"></div>
  
     <div class="metric-row">
-        <p class="metric-left">Yesterday's Follower Gain</p>
+        <p class="metric-left">Yesterday's Follower </p>
         <p class="metric-right">{int(odyssey_instagram['yesterday_followers'].iloc[0])}</p>
     </div>
     <div class="metric-line"></div>
@@ -355,13 +356,13 @@ odyssey_first_html_code = f"""
         </div>
         <div class="metric-container">
     <div class="metric-row">
-        <p class="metric-left">Today's Follower Gain</p>
+        <p class="metric-left">Today's Follower </p>
         <p class="metric-right">{int(odyssey_facebook['today_followers'].iloc[0])}</p>
     </div>
     <div class="metric-line"></div>
  
     <div class="metric-row">
-        <p class="metric-left">Yesterday's Follower Gain</p>
+        <p class="metric-left">Yesterday's Follower </p>
         <p class="metric-right">{int(odyssey_facebook['yesterday_followers'].iloc[0])}</p>
     </div>
     <div class="metric-line"></div>

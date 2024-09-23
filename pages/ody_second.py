@@ -6,15 +6,13 @@ from functions import plot_histograms_zeniva
 
 st.set_page_config(layout='wide', initial_sidebar_state='collapsed')
 
-# Inject custom CSS to target the entire page background
 st.markdown(
     """
     <style>
-    /* Set the entire page background to black */
-    html, body, [class^="st-emotion-cache"] {
-        background-color: #191B21;
-        color: white; /* Optional: Make the text color white for contrast */
-    }
+   
+   header {visibility: hidden;}       
+   footer {visibility: hidden;}         
+   .stApp > header {display: none;}   
 
     
     
@@ -27,6 +25,9 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+
+
+
 odyssey_youtube_plot = plot_histograms_zeniva("odyssey", "youtube")
 odyssey_meta_plot = plot_histograms_zeniva("odyssey", "meta")
 odyssey_shopify_plot = plot_histograms_zeniva("odyssey", "shopify")
