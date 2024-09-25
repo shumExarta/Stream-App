@@ -36,7 +36,7 @@ with pd.ExcelFile(excel_file) as xls:
     if comparison_sheet_name in xls.sheet_names:
         comparison_data = pd.read_excel(xls, sheet_name=comparison_sheet_name)
 
-        comparison_csv_name = 'comparisons.csv'  # The CSV file name for comparisons
+        comparison_csv_name = 'comparisons.csv' 
         comparison_data.to_csv(comparison_csv_name, index=False)
         print(f"Comparison data saved to {comparison_csv_name}")
     else:
@@ -331,11 +331,9 @@ margin-bottom: 22px;
         <div style="display: flex; justify-content: space-between; align-items: center;">
                        <img style="padding-left:100px;" src="https://i.ibb.co/0jT4xCS/Logo-2-1.png" alt="logo" style="width:100px;">
             <div> 
-                <a href="#overview" style="margin-right: 20px; padding-right:100px; color: #F0F0F0; font-family: 'Roboto', sans-serif; font-size: 25px; font-style: normal; font-weight: 300; line-height: normal; text-decoration: none;">Overview</a>
-         
+                <a href="#overview" style="margin-right: 20px; padding-right:100px; color: #F0F0F0; font-family: 'Roboto', sans-serif; font-size: 25px; font-style: normal; font-weight: 300; line-height: normal; text-decoration: none;">Overview</a>         
                 <a  href="#zeniva" style="margin-right: 20px; padding-right:100px; color: #F0F0F0; font-family: 'Roboto', sans-serif; font-size: 25px; font-style: normal; font-weight: 300; line-height: normal; text-decoration: underline; text-decoration-color: none;">Zeniva</a>
                 <a href="#odyssey" style="margin-right: 20px; padding-right:100px; color: #F0F0F0; font-family: 'Roboto', sans-serif; font-size: 25px; font-style: normal; font-weight: 300; line-height: normal; text-decoration: none;">Odyssey</a>
- 
                 <a href="#exarta" style="padding-right:100px; color: #F0F0F0; font-family: 'Roboto', sans-serif; font-size: 25px; font-style: normal; font-weight: 300; line-height: normal; text-decoration: none;">Exarta</a>
     
             </div>

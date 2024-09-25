@@ -76,15 +76,25 @@ def filtering_data(dataframe):
 
     return youtube_melted, meta_melted
 
+
+
+live_data['date'] = pd.to_datetime(live_data['date'], format='%m/%d/%Y')
+
 def zeniva_values_for_insights():
     data = live_data.fillna(0)
     zeniva_data = data[data["product"] == "zeniva"]
-    zeniva_youtube = zeniva_data[zeniva_data["platform"] == "youtube"]
-    zeniva_x = zeniva_data[zeniva_data["platform"] == "x"]
-    zeniva_tiktok = zeniva_data[zeniva_data["platform"] == "tiktok"]
-    zeniva_linkedin = zeniva_data[zeniva_data["platform"] == "linkedin"]
-    zeniva_instagram = zeniva_data[zeniva_data["platform"] == "instagram"]
-    zeniva_facebook = zeniva_data[zeniva_data["platform"] == "facebook"]
+    max_date = zeniva_data['date'].max()
+    latest_zeniva_data = zeniva_data[zeniva_data['date'] == max_date]
+
+    # Extract data for each platform for the latest date
+    zeniva_youtube = latest_zeniva_data[latest_zeniva_data["platform"] == "youtube"]
+    zeniva_x = latest_zeniva_data[latest_zeniva_data["platform"] == "x"]
+    zeniva_tiktok = latest_zeniva_data[latest_zeniva_data["platform"] == "tiktok"]
+    zeniva_linkedin = latest_zeniva_data[latest_zeniva_data["platform"] == "linkedin"]
+    zeniva_instagram = latest_zeniva_data[latest_zeniva_data["platform"] == "instagram"]
+    zeniva_facebook = latest_zeniva_data[latest_zeniva_data["platform"] == "facebook"]
+
+    # Return the relevant statistics for each platform
     return (
         zeniva_youtube[["total_followers", "today_followers", "yesterday_followers"]],
         zeniva_x[["total_followers", "today_followers", "yesterday_followers"]],
@@ -93,33 +103,45 @@ def zeniva_values_for_insights():
         zeniva_instagram[["total_followers", "today_followers", "yesterday_followers"]],
         zeniva_facebook[["total_followers", "today_followers", "yesterday_followers"]],
     )
-
-
+    
+    
 def odyssey_values_for_insights():
     data = live_data.fillna(0)
     odyssey_data = data[data["product"] == "odyssey"]
-    odyssey_youtube = odyssey_data[odyssey_data["platform"] == "youtube"]
-    odyssey_x = odyssey_data[odyssey_data["platform"] == "x"]
-    odyssey_tiktok = odyssey_data[odyssey_data["platform"] == "tiktok"]
-    odyssey_instagram = odyssey_data[odyssey_data["platform"] == "instagram"]
-    odyssey_facebook = odyssey_data[odyssey_data["platform"] == "facebook"]
+    max_date = odyssey_data['date'].max()
+    latest_odyssey_data = odyssey_data[odyssey_data['date'] == max_date]
+
+    # Extract data for each platform for the latest date
+    odyssey_youtube = latest_odyssey_data[latest_odyssey_data["platform"] == "youtube"]
+    odyssey_x = latest_odyssey_data[latest_odyssey_data["platform"] == "x"]
+    odyssey_tiktok = latest_odyssey_data[latest_odyssey_data["platform"] == "tiktok"]
+    odyssey_linkedin = latest_odyssey_data[latest_odyssey_data["platform"] == "linkedin"]
+    odyssey_instagram = latest_odyssey_data[latest_odyssey_data["platform"] == "instagram"]
+    odyssey_facebook = latest_odyssey_data[latest_odyssey_data["platform"] == "facebook"]
+
+    # Return the relevant statistics for each platform
     return (
         odyssey_youtube[["total_followers", "today_followers", "yesterday_followers"]],
         odyssey_x[["total_followers", "today_followers", "yesterday_followers"]],
         odyssey_tiktok[["total_followers", "today_followers", "yesterday_followers"]],
+        odyssey_linkedin[["total_followers", "today_followers", "yesterday_followers"]],
         odyssey_instagram[["total_followers", "today_followers", "yesterday_followers"]],
         odyssey_facebook[["total_followers", "today_followers", "yesterday_followers"]],
     )
-
+    
 
 def exarta_values_for_insights():
     data = live_data.fillna(0)
     exarta_data = data[data["product"] == "exarta"]
-    exarta_youtube = exarta_data[exarta_data["platform"] == "youtube"]
-    exarta_x = exarta_data[exarta_data["platform"] == "x"]
-    exarta_facebook = exarta_data[exarta_data["platform"] == "facebook"]
-    exarta_linkedin = exarta_data[exarta_data["platform"] == "linkedin"]
-    exarta_instagram = exarta_data[exarta_data["platform"] == "instagram"]
+    max_date = exarta_data['date'].max()
+    latest_exarta_data = exarta_data[exarta_data['date'] == max_date]
+
+
+    exarta_youtube = latest_exarta_data[latest_exarta_data["platform"] == "youtube"]
+    exarta_x = latest_exarta_data[latest_exarta_data["platform"] == "x"]
+    exarta_facebook = latest_exarta_data[latest_exarta_data["platform"] == "facebook"]
+    exarta_linkedin = latest_exarta_data[latest_exarta_data["platform"] == "linkedin"]
+    exarta_instagram = latest_exarta_data[latest_exarta_data["platform"] == "instagram"]
     return (
         exarta_youtube[["total_followers", "today_followers", "yesterday_followers"]],
         exarta_x[["total_followers", "today_followers", "yesterday_followers"]],
@@ -127,6 +149,7 @@ def exarta_values_for_insights():
         exarta_linkedin[["total_followers", "today_followers", "yesterday_followers"]],
         exarta_instagram[["total_followers", "today_followers", "yesterday_followers"]],
     )
+
 
 
 

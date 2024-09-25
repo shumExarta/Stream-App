@@ -292,7 +292,7 @@ exarta_first_html_code = f"""
     </div>
     <div class="main-card">
         <div class="image-container">
-            <img src="https://s3-alpha-sig.figma.com/img/b47c/7f6f/fc9958aff216c7090428e6fa1fa03889?Expires=1727654400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=e3YAIVFgpSCWkpysbgSsHUCQsQRl22MlQfJcDgsot9KMKGp0Hx1-yBhSkkBMrO~m0ZrMAXHwiReE6lTJEai6-NB9o2aeKMZ1pSwsQUDb9m8oit99HXtNSwQiPA1hUGK4z-uyE-3hMf7B7JKiGllEIUdXPAwxWy5srGsMLQdtsbS4R48K2O-VCyEzAR5jrwlHw4zBnWY6TSmXSJotXn71OvyEBu6XkUguLolUmPojsWqvydSLKp28~vOBCFcULADpCgiJb1HjQ1H5VuURAqQvuTK5-YLdRVGwWkBcBMp0Ktsw68ZAiAj0bSaQPoyf~FyTewhZnY8BZE4V~eKnEAOCKg__" alt="logo">
+            <img src="https://i.ibb.co/8dLDtzM/image-11.png" alt="logo">
         </div>
         <div class="metric-container">
     <div class="metric-row">

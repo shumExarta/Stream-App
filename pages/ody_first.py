@@ -260,7 +260,7 @@ odyssey_first_html_code = f"""
     <div class="main-container">
     <div class="main-card">
         <div class="image-containery">
-            <img src="https://s3-alpha-sig.figma.com/img/1498/18fb/0109e9eb56d423e70f5960980428bd58?Expires=1727049600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=SyHFjAnXlmYdYKWgvjqlg92uj8GHJDrg-dGbSfrmWFe-U3ZqoXKYBE37yAoeOFRH6OKsxSCi-Lz56srq-JJVMAxasuua05uVj3iAjLQdLjj42QbsS3BP~STGfGuChceh1gKUkwHz8-kJFcZ3fdBctjTv~x2KtCRj0p~e8Y6nyRsNTV4GyjCxjglPCZPTuoY2I7v95PvveiM5DoLLblfLL872rCNmvz~mf~zOEM~neP2vorcddB5MGLkKCvdJuAic3qR5zWkEzNdQd3dQ7A1ap-XxMgtbglne1oP2xaP~Tf5I0Q14CfgntY54P5lOHCKh0tDxBaDrynK18TzAJlXmug__" alt="logo">
+            <img src="https://s3-alpha-sig.figma.com/img/1498/18fb/0109e9eb56d423e70f5960980428bd58?Expires=1728259200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=NaGA9WsF7I-Naf7xbCkNLAF~WI0w7F~oBEfBI7s3tRFjvHf~Nszcg9MWNw2~Rk63XPonBlXSO4~IFsbyB7S3KmON2QtDfS6zjSU0lAGKlBaLgQBYZP~2iiQWzu4yZMAbx8fu3BQQs1N7SdAxXI9O2E2wB41ZxGsTEKCq0PUIZD7xXQcX6DTAVsBdUK3KOGJ2CHUGfmWJWBb7vaAWGpuaGeVNw-LfhsvjRkCLFJW6ek2YyPZpTTwBa0q7ZFLg9kxhxbgzrc3QCGtJuj3Jm3AOBcpHA8zWvf3ADnI29pH9Aa9fvs9YS4gcBN987Djxwi4izHUtAk33JaFNCK8DSKY1nQ__" alt="logo">
         </div>
        <div class="metric-container">
     <div class="metric-row">
