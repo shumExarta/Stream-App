@@ -103,32 +103,6 @@ def zeniva_values_for_insights():
         zeniva_instagram[["total_followers", "today_followers", "yesterday_followers"]],
         zeniva_facebook[["total_followers", "today_followers", "yesterday_followers"]],
     )
-    
-    
-def odyssey_values_for_insights():
-    data = live_data.fillna(0)
-    odyssey_data = data[data["product"] == "odyssey"]
-    max_date = odyssey_data['date'].max()
-    latest_odyssey_data = odyssey_data[odyssey_data['date'] == max_date]
-
-    # Extract data for each platform for the latest date
-    odyssey_youtube = latest_odyssey_data[latest_odyssey_data["platform"] == "youtube"]
-    odyssey_x = latest_odyssey_data[latest_odyssey_data["platform"] == "x"]
-    odyssey_tiktok = latest_odyssey_data[latest_odyssey_data["platform"] == "tiktok"]
-    odyssey_linkedin = latest_odyssey_data[latest_odyssey_data["platform"] == "linkedin"]
-    odyssey_instagram = latest_odyssey_data[latest_odyssey_data["platform"] == "instagram"]
-    odyssey_facebook = latest_odyssey_data[latest_odyssey_data["platform"] == "facebook"]
-
-    # Return the relevant statistics for each platform
-    return (
-        odyssey_youtube[["total_followers", "today_followers", "yesterday_followers"]],
-        odyssey_x[["total_followers", "today_followers", "yesterday_followers"]],
-        odyssey_tiktok[["total_followers", "today_followers", "yesterday_followers"]],
-        odyssey_linkedin[["total_followers", "today_followers", "yesterday_followers"]],
-        odyssey_instagram[["total_followers", "today_followers", "yesterday_followers"]],
-        odyssey_facebook[["total_followers", "today_followers", "yesterday_followers"]],
-    )
-    
 
 def exarta_values_for_insights():
     data = live_data.fillna(0)
@@ -150,7 +124,23 @@ def exarta_values_for_insights():
         exarta_instagram[["total_followers", "today_followers", "yesterday_followers"]],
     )
 
-
+def odyssey_values_for_insights():
+    data = live_data.fillna(0)
+    odyssey_data = data[data["product"] == "odyssey"]
+    max_date = odyssey_data['date'].max()
+    latest_odyssey_data  = odyssey_data[odyssey_data['date']== max_date]
+    odyssey_youtube = latest_odyssey_data[latest_odyssey_data["platform"] == "youtube"]
+    odyssey_x = latest_odyssey_data[latest_odyssey_data["platform"] == "x"]
+    odyssey_tiktok = latest_odyssey_data[latest_odyssey_data["platform"] == "tiktok"]
+    odyssey_instagram = latest_odyssey_data[latest_odyssey_data["platform"] == "instagram"]
+    odyssey_facebook = latest_odyssey_data[latest_odyssey_data["platform"] == "facebook"]
+    return (
+        odyssey_youtube[["total_followers", "today_followers", "yesterday_followers"]],
+        odyssey_x[["total_followers", "today_followers", "yesterday_followers"]],
+        odyssey_tiktok[["total_followers", "today_followers", "yesterday_followers"]],
+        odyssey_instagram[["total_followers", "today_followers", "yesterday_followers"]],
+        odyssey_facebook[["total_followers", "today_followers", "yesterday_followers"]],
+    )
 
 
 def plot_histograms_zeniva(product_name, platform_name):
@@ -335,18 +325,3 @@ def odyssey_overview(df):
 
     return today_forge_installs, todays_free_installs, lifetime_installs, today__forge_uninstalls, today_free_uninstalls, lifetime_uninstalls
 
-def odyssey_values_for_insights():
-    data = live_data.fillna(0)
-    odyssey_data = data[data["product"] == "odyssey"]
-    odyssey_youtube = odyssey_data[odyssey_data["platform"] == "youtube"]
-    odyssey_x = odyssey_data[odyssey_data["platform"] == "x"]
-    odyssey_tiktok = odyssey_data[odyssey_data["platform"] == "tiktok"]
-    odyssey_instagram = odyssey_data[odyssey_data["platform"] == "instagram"]
-    odyssey_facebook = odyssey_data[odyssey_data["platform"] == "facebook"]
-    return (
-        odyssey_youtube[["total_followers", "today_followers", "yesterday_followers"]],
-        odyssey_x[["total_followers", "today_followers", "yesterday_followers"]],
-        odyssey_tiktok[["total_followers", "today_followers", "yesterday_followers"]],
-        odyssey_instagram[["total_followers", "today_followers", "yesterday_followers"]],
-        odyssey_facebook[["total_followers", "today_followers", "yesterday_followers"]],
-    )
