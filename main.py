@@ -343,7 +343,7 @@ margin-bottom: 22px;
       <div class="progress-container">
     <div class="progress-bar"></div>
 </div>
-    <h2 style='text-align:left; color:white;font-family: Roboto; font-size: 30px; font-style: normal;font-weight: 600; line-height: normal;'>Social Media</h2>
+    <h2 style='text-align:left; color:white;font-family: Roboto; font-size: 30px; font-style: normal;font-weight: 600; line-height: normal;'>Comparison</h2>
     <div class="main-container">
    
    
